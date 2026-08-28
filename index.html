@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>勝率予報 — 競馬AIの答え合わせ</title>
+<meta name="description" content="846レース11,383頭で検証。8つの確率帯すべてで予報と実績が統計的に一致しました。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="勝率予報 — AIの勝率は8帯すべてで正確でした">
+<meta property="og:description" content="846レース11,383頭で検証。8つの確率帯すべてで予報と実績が統計的に一致しました。">
+<meta property="og:url" content="https://akiaki4646.github.io/">
+<meta property="og:image" content="https://akiaki4646.github.io/ogp_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#0b1222;--card:#131c31;--ink:#e8eefb;--dim:#93a6c4;--sky:#38bdf8;--line:#24324e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+     line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
+header{padding:36px 0 8px}
+header img{width:100%;border-radius:14px;display:block}
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+p{margin:12px 0}
+.lead{color:var(--dim)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
+.kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
+         border-radius:12px;padding:14px 16px}
+.kpi b{display:block;font-size:1.5rem;color:var(--sky);line-height:1.3}
+.kpi span{color:var(--dim);font-size:.85rem}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-variant-numeric:tabular-nums}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--dim);font-weight:600;font-size:.85rem}
+.gap{color:var(--dim)}
+tr.thin td{color:var(--dim);opacity:.72}
+tr.thin td:first-child::after{content:" *";color:var(--sky)}
+a{color:var(--sky)}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
+       color:var(--dim);font-size:.85rem}
+.follow{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}
+.follow a{display:inline-block;padding:10px 18px;border:1px solid var(--sky);
+         border-radius:999px;color:var(--sky);text-decoration:none;font-size:.9rem}
+.follow a:hover{background:var(--sky);color:var(--bg)}
+@media(max-width:520px){.kpi div{flex:1 1 100%}}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
+</head><body><div class="wrap">
+<header><img src="header.png" alt="競馬に、降水確率を。"></header>
+
+<h1>このAIの勝率は、8つの確率帯すべてで統計的に正確でした</h1>
+<p class="lead">846レース・11,383頭で検証した結果です。
+「30%」と予報した馬は実際に35%勝ちました。
+すべて<strong>発走前に</strong>計算・公開し、良い結果だけを選ぶことがないよう予測をその時点で保存しています。</p>
+
+<div class="kpi">
+  <div><b>8/8</b><span>予報が実測と一致した帯</span></div>
+  <div><b>0.23%</b><span>予報と結果のズレ</span></div>
+  <div><b>846</b><span>検証したレース</span></div>
+</div>
+<p class="lead">※「正確」とは、予報した確率どおりの割合で実際に起きているという意味です。
+<strong>儲かることを保証するものではありません</strong>（この予報どおりに買っても、控除率のぶん回収率は100%を下回ります）。</p>
+
+<div class="follow">
+  <a href="race/20260823.html">最新の勝率予報を見る</a>
+  <a href="race/index.html">過去の予報一覧</a>
+</div>
+
+<h2>帯ごとの答え合わせ</h2>
+<p>「勝率20〜30%と予報した馬は、本当にそのとおり勝ったのか」を帯ごとに並べています。
+<strong>検定に用いた8帯すべてで、予報した値が実際の結果の95%信頼区間に収まりました。</strong>
+較正の適合度検定（Hosmer-Lemeshow）でも p=0.73 で、
+統計的に「予報と実績にズレがある」とは言えない結果です。
+（下の表は読みやすさのため、頭数の少ない上位帯をまとめて6行で表示しています）</p>
+<table>
+<thead><tr><th>予報した勝率</th><th>頭数</th><th>予報</th><th>結果</th><th>差</th></tr></thead>
+<tbody><tr><td>0〜10%</td><td>8,683</td><td>2.9%</td><td>2.9%</td><td class='gap'>-0.0pt</td></tr><tr><td>10〜20%</td><td>1,501</td><td>14.2%</td><td>13.9%</td><td class='gap'>-0.2pt</td></tr><tr><td>20〜30%</td><td>665</td><td>24.4%</td><td>23.6%</td><td class='gap'>-0.8pt</td></tr><tr><td>30〜40%</td><td>317</td><td>34.3%</td><td>35.3%</td><td class='gap'>+1.0pt</td></tr><tr class='thin'><td>40〜50%</td><td>126</td><td>44.0%</td><td>50.0%</td><td class='gap'>+6.0pt</td></tr><tr class='thin'><td>50%以上</td><td>91</td><td>59.7%</td><td>62.6%</td><td class='gap'>+3.0pt</td></tr></tbody></table>
+<p class="lead">＊の付いた行は頭数が少なく、数字がブレやすいので参考程度に見てください。
+それでも40%を超える帯（計217頭）は一貫して結果が予報をやや上回っており、
+「自信のある馬でも言い切らない」という予報の傾向がここにも表れています。</p>
+
+<h2>AIの本命</h2>
+<div class="card">
+<p>各レースで最も勝率が高いと判断した馬（◎）の成績です。</p>
+<table>
+<thead><tr><th>項目</th><th>値</th></tr></thead>
+<tbody>
+<tr><td>対象レース</td><td>846</td></tr>
+<tr><td>予報の平均勝率</td><td>34.2%</td></tr>
+<tr><td>実際の勝率</td><td>36.2%</td></tr>
+<tr><td>実際の複勝率</td><td>66.3%</td></tr>
+</tbody></table>
+</div>
+
+<h2>この記録の読み方</h2>
+<p>「勝率30%」は、<strong>同じ予測を100回出したら30回前後勝つ</strong>という意味です。
+天気予報の降水確率と同じ読み方をします。</p>
+<p>数字は2026/5/17以降のもので、
+取消・除外で予測の配分が崩れた12レースは集計から除いています。</p>
+
+<div class="follow">
+  <a href="https://x.com/shoritsu_yoho">Xで毎週の答え合わせを見る</a>
+  <a href="https://note.com/shoritsu_yoho">noteで全レースの予想を読む</a>
+</div>
+
+<footer>
+<p>本記事の数値は自作の機械学習モデルの出力です。20歳未満の方は馬券を購入できません。</p>
+<p>最終更新 2026/08/28　|　2026/5/17〜2026/8/23（26開催日）</p>
+<p><a href="about.html">運営者情報</a>　|　<a href="privacy.html">プライバシーポリシー</a>　|　<a href="contact.html">お問い合わせ</a></p>
+</footer>
+</div></body></html>
