@@ -20,10 +20,19 @@ body{margin:0;background:var(--bg);color:var(--ink);
 .wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
 header{padding:36px 0 8px}
 header img{width:100%;border-radius:14px;display:block}
-h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em}
-h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+/* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
+   モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
+   見出しは 1.3 前後に締める。 */
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em;line-height:1.35}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);line-height:1.4}
+h3{line-height:1.4}
 p{margin:12px 0}
-.lead{color:var(--dim)}
+/* 本文は必ず --ink。--dim は注記・キャプション・補助情報だけに使う。
+   地の文に --dim を当てると、規格上のコントラストは足りていても
+   彩度の低い青が暗い青に乗って「かすむ」(トップだけ --dim になっていた)。 */
+.lead{color:var(--ink)}
+.note,figcaption,.src{color:var(--dim);font-size:.88rem}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
 .kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
 .kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
@@ -50,19 +59,42 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
 .adlabel{display:block;font-size:.72rem;color:var(--dim);letter-spacing:.08em;
 margin-bottom:6px}
 
-.col img{width:100%;border-radius:12px;display:block;margin:20px 0}
+.tablewrap{overflow-x:auto;margin:20px 0}
+.col-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.col-table th{color:var(--dim);font-weight:600;font-size:.82rem;text-align:right;
+padding:8px 6px;border-bottom:1px solid var(--line);line-height:1.4}
+.col-table th:first-child,.col-table td:first-child{text-align:left}
+/* 項目名の列は折り返させない。狭い画面だと「C.ル/メー/ル」のように
+   1文字ずつ割れて読めなくなる。あふれる場合は .tablewrap が横スクロールする。 */
+.col-table td.label{white-space:nowrap;padding-right:12px;text-align:left}
+.col-table td.rank{color:var(--dim);width:2.2em;padding-right:4px}
+.col-table td{padding:11px 6px;border-bottom:1px solid var(--line);text-align:right}
+.col-table td.bar{width:46%;white-space:nowrap}
+.col-table .track{display:inline-block;width:calc(100% - 4.6em);height:14px;
+background:#243048;border-radius:4px;vertical-align:middle;overflow:hidden}
+.col-table .fill{display:block;height:100%;border-radius:4px}
+.col-table td.bar b{display:inline-block;width:4.4em;text-align:right;
+font-size:1.02rem}
+@media(max-width:520px){
+  .col-table td.bar .track{display:none}
+  .col-table td.bar{width:auto}
+  .col-table td.bar b{width:auto}
+}
+
 .col h2{font-size:1.1rem;margin:30px 0 10px}
 .method{background:var(--card);border:1px solid var(--line);border-radius:10px;
 padding:14px 18px;font-size:.92rem;color:var(--dim)}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 14px}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
 </head><body><div class="wrap">
 <h1>回収率の高い騎手を 買い続けたら</h1>
+<p class="subtitle">2023〜25年の成績で選び、2026年に単勝を買った結果</p>
 <div class="col">
 <p>「回収率の高い騎手を買え」は本当か。過去3年の成績で選んで、翌年に実際に買ったらどうなるかを試しました。</p>
-<img src="roi_persistence.png" alt="回収率の高い騎手を 買い続けたら">
+<div class='tablewrap'><table class='col-table'><thead><tr><th>選び方</th><th>2026年の単勝回収率</th></tr></thead><tbody><tr><td class='label'>過去の回収率 上位5人</td><td class='bar'><span class='track'><span class='fill' style='width:68.7%;background:rgb(203,190,87)'></span></span><b style='color:rgb(203,190,87)'>61.8%</b></td></tr><tr><td class='label'>過去の回収率 上位10人</td><td class='bar'><span class='track'><span class='fill' style='width:70.6%;background:rgb(189,190,102)'></span></span><b style='color:rgb(189,190,102)'>63.5%</b></td></tr><tr><td class='label'>過去の回収率 上位15人</td><td class='bar'><span class='track'><span class='fill' style='width:87.1%;background:rgb(69,189,233)'></span></span><b style='color:rgb(69,189,233)'>78.4%</b></td></tr><tr><td class='label'>騎手を選ばず全部</td><td class='bar'><span class='track'><span class='fill' style='width:84.3%;background:rgb(89,189,211)'></span></span><b style='color:rgb(89,189,211)'>75.8%</b></td></tr><tr><td class='label'>過去の回収率 下位15人</td><td class='bar'><span class='track'><span class='fill' style='width:56.5%;background:rgb(248,164,42)'></span></span><b style='color:rgb(248,164,42)'>50.8%</b></td></tr><tr><td class='label'>過去の回収率 下位10人</td><td class='bar'><span class='track'><span class='fill' style='width:49.8%;background:rgb(245,133,50)'></span></span><b style='color:rgb(245,133,50)'>44.9%</b></td></tr><tr><td class='label'>過去の回収率 下位5人</td><td class='bar'><span class='track'><span class='fill' style='width:37.9%;background:rgb(240,78,65)'></span></span><b style='color:rgb(240,78,65)'>34.1%</b></td></tr></tbody></table></div><p class='note'>前年までの回収率と翌年の回収率の相関 r = +0.09（ほぼ無関係）</p>
 <p>2023〜25年の単勝回収率で騎手を並べ、上位から順に選んで2026年の全騎乗を単勝で買う、という手順です。選ぶのに使った期間と、買う期間は一切重なっていません。</p>
 <p>結果は上のとおりで、上位10人を選んでも63.5%。騎手を選ばず全部買った75.8%を<b>下回りました</b>。前年までの回収率と翌年の回収率の相関は <b>r=+0.09</b>、ほぼ無関係です。</p>
 <p>面白いのは下側で、過去の回収率が低かった騎手は翌年も低いままでした。ただしこれも腕の話ではありません。下位10人が乗っていた馬の平均オッズは119.2倍で、全体の64.6倍より大幅に高い。人気薄にばかり乗る騎手は、前の表のとおり構造的に回収率が下がります。つまり上下どちらの端も、測っているのは騎手ではなく乗る馬でした。</p>

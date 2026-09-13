@@ -20,10 +20,19 @@ body{margin:0;background:var(--bg);color:var(--ink);
 .wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
 header{padding:36px 0 8px}
 header img{width:100%;border-radius:14px;display:block}
-h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em}
-h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+/* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
+   モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
+   見出しは 1.3 前後に締める。 */
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em;line-height:1.35}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);line-height:1.4}
+h3{line-height:1.4}
 p{margin:12px 0}
-.lead{color:var(--dim)}
+/* 本文は必ず --ink。--dim は注記・キャプション・補助情報だけに使う。
+   地の文に --dim を当てると、規格上のコントラストは足りていても
+   彩度の低い青が暗い青に乗って「かすむ」(トップだけ --dim になっていた)。 */
+.lead{color:var(--ink)}
+.note,figcaption,.src{color:var(--dim);font-size:.88rem}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
 .kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
 .kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
@@ -50,19 +59,42 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
 .adlabel{display:block;font-size:.72rem;color:var(--dim);letter-spacing:.08em;
 margin-bottom:6px}
 
-.col img{width:100%;border-radius:12px;display:block;margin:20px 0}
+.tablewrap{overflow-x:auto;margin:20px 0}
+.col-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.col-table th{color:var(--dim);font-weight:600;font-size:.82rem;text-align:right;
+padding:8px 6px;border-bottom:1px solid var(--line);line-height:1.4}
+.col-table th:first-child,.col-table td:first-child{text-align:left}
+/* 項目名の列は折り返させない。狭い画面だと「C.ル/メー/ル」のように
+   1文字ずつ割れて読めなくなる。あふれる場合は .tablewrap が横スクロールする。 */
+.col-table td.label{white-space:nowrap;padding-right:12px;text-align:left}
+.col-table td.rank{color:var(--dim);width:2.2em;padding-right:4px}
+.col-table td{padding:11px 6px;border-bottom:1px solid var(--line);text-align:right}
+.col-table td.bar{width:46%;white-space:nowrap}
+.col-table .track{display:inline-block;width:calc(100% - 4.6em);height:14px;
+background:#243048;border-radius:4px;vertical-align:middle;overflow:hidden}
+.col-table .fill{display:block;height:100%;border-radius:4px}
+.col-table td.bar b{display:inline-block;width:4.4em;text-align:right;
+font-size:1.02rem}
+@media(max-width:520px){
+  .col-table td.bar .track{display:none}
+  .col-table td.bar{width:auto}
+  .col-table td.bar b{width:auto}
+}
+
 .col h2{font-size:1.1rem;margin:30px 0 10px}
 .method{background:var(--card);border:1px solid var(--line);border-radius:10px;
 padding:14px 18px;font-size:.92rem;color:var(--dim)}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 14px}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
 </head><body><div class="wrap">
 <h1>長い休み明けは 割引いて見る</h1>
+<p class="subtitle">前走からの間隔ごとの単勝回収率</p>
 <div class="col">
 <p>半年以上ぶりに走る馬は、人気になっていても額面どおりには走りません。</p>
-<img src="rest_days.png" alt="長い休み明けは 割引いて見る">
+<div class='tablewrap'><table class='col-table'><thead><tr><th>前走からの間隔</th><th>勝率</th><th>単勝回収率</th></tr></thead><tbody><tr><td class='label'>3週以内</td><td>7.2%</td><td class='bar'><span class='track'><span class='fill' style='width:81.0%;background:rgb(155,190,140)'></span></span><b style='color:rgb(155,190,140)'>68.9%</b></td></tr><tr><td class='label'>4〜8週</td><td>8.0%</td><td class='bar'><span class='track'><span class='fill' style='width:88.3%;background:rgb(79,189,222)'></span></span><b style='color:rgb(79,189,222)'>75.1%</b></td></tr><tr><td class='label'>9〜17週</td><td>7.1%</td><td class='bar'><span class='track'><span class='fill' style='width:84.9%;background:rgb(115,189,183)'></span></span><b style='color:rgb(115,189,183)'>72.2%</b></td></tr><tr><td class='label'>18〜30週</td><td>6.3%</td><td class='bar'><span class='track'><span class='fill' style='width:82.5%;background:rgb(139,189,157)'></span></span><b style='color:rgb(139,189,157)'>70.1%</b></td></tr><tr><td class='label'>31週超</td><td>4.8%</td><td class='bar'><span class='track'><span class='fill' style='width:55.3%;background:rgb(240,83,64)'></span></span><b style='color:rgb(240,83,64)'>47.0%</b></td></tr></tbody></table></div><p class='note'>「31週超」と他すべての差は -24.8ポイント （95%信頼区間 -39.2〜-7.1）＝誤差では説明できない</p>
 <p>前走から31週超空いた馬の単勝回収率は47.0%。最も良い4〜8週の75.1%と比べて約28ポイント低い数字です。他のすべての区分とまとめて比べても-24.8ポイント（95%信頼区間 -39.2〜-7.1）で、誤差では説明できない差でした。枠番や馬体重で見つかる差より、はっきり大きい。</p>
 <p>休養明けが走らないこと自体は知られていますが、オッズはそれを十分に割引けていないように見えます。「休み明けでも実績があるから」と買われた結果でしょう。</p>
 <p>一方で、間隔を詰めて使っている馬（3週以内）も良くありません。使い減りなのか、勝負を急いでいる事情があるのか、この集計からは理由までは分かりません。分かるのは、4〜8週あけた馬がいちばん素直に走る、ということです。</p>

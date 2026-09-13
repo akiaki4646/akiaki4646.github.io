@@ -20,10 +20,19 @@ body{margin:0;background:var(--bg);color:var(--ink);
 .wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
 header{padding:36px 0 8px}
 header img{width:100%;border-radius:14px;display:block}
-h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em}
-h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+/* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
+   モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
+   見出しは 1.3 前後に締める。 */
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em;line-height:1.35}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);line-height:1.4}
+h3{line-height:1.4}
 p{margin:12px 0}
-.lead{color:var(--dim)}
+/* 本文は必ず --ink。--dim は注記・キャプション・補助情報だけに使う。
+   地の文に --dim を当てると、規格上のコントラストは足りていても
+   彩度の低い青が暗い青に乗って「かすむ」(トップだけ --dim になっていた)。 */
+.lead{color:var(--ink)}
+.note,figcaption,.src{color:var(--dim);font-size:.88rem}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
 .kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
 .kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
@@ -50,19 +59,42 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
 .adlabel{display:block;font-size:.72rem;color:var(--dim);letter-spacing:.08em;
 margin-bottom:6px}
 
-.col img{width:100%;border-radius:12px;display:block;margin:20px 0}
+.tablewrap{overflow-x:auto;margin:20px 0}
+.col-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.col-table th{color:var(--dim);font-weight:600;font-size:.82rem;text-align:right;
+padding:8px 6px;border-bottom:1px solid var(--line);line-height:1.4}
+.col-table th:first-child,.col-table td:first-child{text-align:left}
+/* 項目名の列は折り返させない。狭い画面だと「C.ル/メー/ル」のように
+   1文字ずつ割れて読めなくなる。あふれる場合は .tablewrap が横スクロールする。 */
+.col-table td.label{white-space:nowrap;padding-right:12px;text-align:left}
+.col-table td.rank{color:var(--dim);width:2.2em;padding-right:4px}
+.col-table td{padding:11px 6px;border-bottom:1px solid var(--line);text-align:right}
+.col-table td.bar{width:46%;white-space:nowrap}
+.col-table .track{display:inline-block;width:calc(100% - 4.6em);height:14px;
+background:#243048;border-radius:4px;vertical-align:middle;overflow:hidden}
+.col-table .fill{display:block;height:100%;border-radius:4px}
+.col-table td.bar b{display:inline-block;width:4.4em;text-align:right;
+font-size:1.02rem}
+@media(max-width:520px){
+  .col-table td.bar .track{display:none}
+  .col-table td.bar{width:auto}
+  .col-table td.bar b{width:auto}
+}
+
 .col h2{font-size:1.1rem;margin:30px 0 10px}
 .method{background:var(--card);border:1px solid var(--line);border-radius:10px;
 padding:14px 18px;font-size:.92rem;color:var(--dim)}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 14px}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
 </head><body><div class="wrap">
 <h1>人気薄は 夢ではなく税です</h1>
+<p class="subtitle">単勝を1点ずつ買い続けた場合の回収率</p>
 <div class="col">
 <p>どうせ全部マイナスなら人気薄で夢を買う、という考え方があります。その夢は思っているより高くつきます。</p>
-<img src="popularity_roi.png" alt="人気薄は 夢ではなく税です">
+<div class='tablewrap'><table class='col-table'><thead><tr><th>人気</th><th>勝率</th><th>単勝回収率</th></tr></thead><tbody><tr><td class='label'>1番人気</td><td>33.5%</td><td class='bar'><span class='track'><span class='fill' style='width:93.1%;background:rgb(94,189,206)'></span></span><b style='color:rgb(94,189,206)'>79.1%</b></td></tr><tr><td class='label'>2番人気</td><td>19.9%</td><td class='bar'><span class='track'><span class='fill' style='width:94.5%;background:rgb(70,189,232)'></span></span><b style='color:rgb(70,189,232)'>80.3%</b></td></tr><tr><td class='label'>3番人気</td><td>13.0%</td><td class='bar'><span class='track'><span class='fill' style='width:89.4%;background:rgb(159,190,136)'></span></span><b style='color:rgb(159,190,136)'>76.0%</b></td></tr><tr><td class='label'>4番人気</td><td>9.1%</td><td class='bar'><span class='track'><span class='fill' style='width:87.0%;background:rgb(199,190,91)'></span></span><b style='color:rgb(199,190,91)'>74.0%</b></td></tr><tr><td class='label'>5番人気</td><td>7.1%</td><td class='bar'><span class='track'><span class='fill' style='width:92.2%;background:rgb(110,189,188)'></span></span><b style='color:rgb(110,189,188)'>78.4%</b></td></tr><tr><td class='label'>6番人気</td><td>5.1%</td><td class='bar'><span class='track'><span class='fill' style='width:90.6%;background:rgb(138,189,158)'></span></span><b style='color:rgb(138,189,158)'>77.0%</b></td></tr><tr><td class='label'>7番人気</td><td>3.8%</td><td class='bar'><span class='track'><span class='fill' style='width:92.5%;background:rgb(105,189,194)'></span></span><b style='color:rgb(105,189,194)'>78.6%</b></td></tr><tr><td class='label'>8番人気</td><td>2.9%</td><td class='bar'><span class='track'><span class='fill' style='width:91.3%;background:rgb(126,189,171)'></span></span><b style='color:rgb(126,189,171)'>77.6%</b></td></tr><tr><td class='label'>9番人気</td><td>2.1%</td><td class='bar'><span class='track'><span class='fill' style='width:86.0%;background:rgb(217,190,72)'></span></span><b style='color:rgb(217,190,72)'>73.1%</b></td></tr><tr><td class='label'>10番人気</td><td>1.7%</td><td class='bar'><span class='track'><span class='fill' style='width:86.2%;background:rgb(214,190,75)'></span></span><b style='color:rgb(214,190,75)'>73.3%</b></td></tr><tr><td class='label'>11番人気</td><td>1.1%</td><td class='bar'><span class='track'><span class='fill' style='width:75.3%;background:rgb(241,94,61)'></span></span><b style='color:rgb(241,94,61)'>64.0%</b></td></tr><tr><td class='label'>12番人気</td><td>0.9%</td><td class='bar'><span class='track'><span class='fill' style='width:76.8%;background:rgb(243,110,57)'></span></span><b style='color:rgb(243,110,57)'>65.3%</b></td></tr></tbody></table></div><p class='note'>点線は単勝の払戻率80%。1〜8番人気 77.6% / 9番人気以下 63.5%</p>
 <p>単勝は払戻率が80%と決まっていて、どの馬を買っても理屈のうえでは同じだけ差し引かれます。ところが実際に1点ずつ買い続けた結果を人気順に並べると、<b>1〜8番人気は77.6%</b>、<b>9番人気以下は63.5%</b>と大きく違いました。</p>
 <p>人気薄のほうが余計に削られている。これは控除のルールではなく、買う側が人気薄を実力以上に買っているからです。夢に値段が上乗せされている、と言い換えてもいい。</p>
 <p>念のため書いておくと、表のなかで一番高い2番人気の80.3%は1番人気の79.1%と差があるとは言えません（差 +1.2ポイント、95%信頼区間 -2.6〜+4.7）。上位人気のあいだの上下は誤差の範囲で、読み取れるのは「上位人気か、それとも人気薄か」という段差だけです。</p>

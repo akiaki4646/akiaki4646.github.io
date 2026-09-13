@@ -2,11 +2,11 @@
 <html lang="ja"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>勝率予報 — 競馬AIの答え合わせ</title>
-<meta name="description" content="1,025レース13,766頭で検証。9つの確率帯すべてで予報と実績が統計的に一致しました。">
+<title>勝率予報 — 発走前に出した勝率と、その結果</title>
+<meta name="description" content="競馬AIが発走前に計算した全頭の勝率を公開し、結果と突き合わせた記録です。1,025レース13,766頭ぶん。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="勝率予報 — AIの勝率は9帯すべてで正確でした">
-<meta property="og:description" content="1,025レース13,766頭で検証。9つの確率帯すべてで予報と実績が統計的に一致しました。">
+<meta property="og:title" content="勝率予報 — 発走前に出した勝率と、その結果">
+<meta property="og:description" content="競馬AIが発走前に計算した全頭の勝率を公開し、結果と突き合わせた記録です。1,025レース13,766頭ぶん。">
 <meta property="og:url" content="https://akiaki4646.github.io/">
 <meta property="og:image" content="https://akiaki4646.github.io/ogp_default.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,10 +19,19 @@ body{margin:0;background:var(--bg);color:var(--ink);
 .wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
 header{padding:36px 0 8px}
 header img{width:100%;border-radius:14px;display:block}
-h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em}
-h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+/* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
+   モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
+   見出しは 1.3 前後に締める。 */
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em;line-height:1.35}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);line-height:1.4}
+h3{line-height:1.4}
 p{margin:12px 0}
-.lead{color:var(--dim)}
+/* 本文は必ず --ink。--dim は注記・キャプション・補助情報だけに使う。
+   地の文に --dim を当てると、規格上のコントラストは足りていても
+   彩度の低い青が暗い青に乗って「かすむ」(トップだけ --dim になっていた)。 */
+.lead{color:var(--ink)}
+.note,figcaption,.src{color:var(--dim);font-size:.88rem}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
 .kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
 .kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
@@ -51,18 +60,25 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
 </head><body><div class="wrap">
 <header><img src="header.png" alt="競馬に、降水確率を。"></header>
 
-<h1>このAIの勝率は、9つの確率帯すべてで統計的に正確でした</h1>
-<p class="lead">1,025レース・13,766頭で検証した結果です。
-「30%」と予報した馬は実際に35%勝ちました。
-すべて<strong>発走前に</strong>計算・公開し、良い結果だけを選ぶことがないよう予測をその時点で保存しています。</p>
+<!-- 見出しは自己評価ではなく、このサイトが何かの説明にする。
+     「統計的に正確でした」という断言を一番大きい文字に置くと、
+     情報商材系の体裁と同じになり、主張の強さがそのまま信頼を削る。
+     しかも bands_agree には頭数が一桁の帯が含まれる (検定力が無いから
+     一致する) ので、その数を看板にすること自体が弱い。 -->
+<h1>発走前に出した勝率を、結果と突き合わせた記録</h1>
+<p class="lead">競馬AIが計算した全頭の勝率を、レースが始まる前に公開しています。
+1,025レース・13,766頭ぶんの予報と結果がこのページに載っています。
+「30%」と予報した馬は、実際に35%が勝ちました。</p>
+<p class="lead">当たった予報だけを後から選ぶことができないよう、
+予測は<strong>発走前の時点で保存</strong>し、後から書き換えていません。</p>
 
 <div class="kpi">
-  <div><b>9/9</b><span>予報が実測と一致した帯</span></div>
-  <div><b>0.19%</b><span>予報と結果のズレ</span></div>
+  <div><b>0.19%</b><span>予報と結果の平均的なズレ</span></div>
   <div><b>1,025</b><span>検証したレース</span></div>
+  <div><b>13,766</b><span>検証した頭数</span></div>
 </div>
-<p class="lead">※「正確」とは、予報した確率どおりの割合で実際に起きているという意味です。
-<strong>儲かることを保証するものではありません</strong>（この予報どおりに買っても、控除率のぶん回収率は100%を下回ります）。</p>
+<p class="note">※ここでの「合っている」は、予報した確率どおりの割合で実際に起きている、という意味です。
+<strong>儲かることを意味しません</strong>。この予報どおりに買っても、控除率のぶん回収率は100%を下回ります。</p>
 
 <div class="follow">
   <a href="race/20260913.html">最新の勝率予報を見る</a>
@@ -72,16 +88,20 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
 
 <h2>帯ごとの答え合わせ</h2>
 <p>「勝率20〜30%と予報した馬は、本当にそのとおり勝ったのか」を帯ごとに並べています。
-<strong>検定に用いた9帯すべてで、予報した値が実際の結果の95%信頼区間に収まりました。</strong>
-較正の適合度検定（Hosmer-Lemeshow）でも p=0.38 で、
-統計的に「予報と実績にズレがある」とは言えない結果です。
-（下の表は読みやすさのため、頭数の少ない上位帯をまとめて7行で表示しています）</p>
+検定に用いた9帯すべてで、予報した値は実際の結果の95%信頼区間に収まりました。
+ただし<strong>この「すべて一致」を成績として読まないでください</strong>。
+頭数の少ない帯は、そもそも一致しないほうが難しいだけです。
+意味があるのは頭数の多い上位3帯で、そこで合っていることがこの表の中身です。
+（下の表は読みやすさのため、頭数の少ない帯をまとめて7行にしています）</p>
 <table>
 <thead><tr><th>予報した勝率</th><th>頭数</th><th>予報</th><th>結果</th><th>差</th></tr></thead>
 <tbody><tr><td>0〜10%</td><td>10,491</td><td>2.9%</td><td>2.9%</td><td class='gap'>-0.0pt</td></tr><tr><td>10〜20%</td><td>1,834</td><td>14.1%</td><td>14.0%</td><td class='gap'>-0.1pt</td></tr><tr><td>20〜30%</td><td>799</td><td>24.4%</td><td>23.9%</td><td class='gap'>-0.5pt</td></tr><tr><td>30〜40%</td><td>380</td><td>34.4%</td><td>35.0%</td><td class='gap'>+0.6pt</td></tr><tr><td>40〜50%</td><td>150</td><td>43.9%</td><td>50.0%</td><td class='gap'>+6.1pt</td></tr><tr class='thin'><td>50〜60%</td><td>61</td><td>53.8%</td><td>59.0%</td><td class='gap'>+5.2pt</td></tr><tr class='thin'><td>60%以上</td><td>51</td><td>67.4%</td><td>62.7%</td><td class='gap'>-4.7pt</td></tr></tbody></table>
-<p class="lead">＊の付いた行は頭数が少なく、数字がブレやすいので参考程度に見てください。
+<p class="note">＊の付いた行は頭数が少なく、数字がブレやすいので参考程度に見てください。
 それでも40%を超える帯（計262頭）は一貫して結果が予報をやや上回っており、
 「自信のある馬でも言い切らない」という予報の傾向がここにも表れています。</p>
+<p class="note">統計的な補足: 較正の適合度検定（Hosmer-Lemeshow）で p=0.38。
+「予報と実績にズレがある」とは言えない、という意味の数字です。
+なおこの検定は、ズレが無いことを証明するものではありません。</p>
 
 <h2>AIの本命</h2>
 <div class="card">

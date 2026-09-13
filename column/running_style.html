@@ -20,10 +20,19 @@ body{margin:0;background:var(--bg);color:var(--ink);
 .wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
 header{padding:36px 0 8px}
 header img{width:100%;border-radius:14px;display:block}
-h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em}
-h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+/* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
+   モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
+   見出しは 1.3 前後に締める。 */
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em;line-height:1.35}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);line-height:1.4}
+h3{line-height:1.4}
 p{margin:12px 0}
-.lead{color:var(--dim)}
+/* 本文は必ず --ink。--dim は注記・キャプション・補助情報だけに使う。
+   地の文に --dim を当てると、規格上のコントラストは足りていても
+   彩度の低い青が暗い青に乗って「かすむ」(トップだけ --dim になっていた)。 */
+.lead{color:var(--ink)}
+.note,figcaption,.src{color:var(--dim);font-size:.88rem}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
 .kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
 .kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
@@ -50,19 +59,42 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
 .adlabel{display:block;font-size:.72rem;color:var(--dim);letter-spacing:.08em;
 margin-bottom:6px}
 
-.col img{width:100%;border-radius:12px;display:block;margin:20px 0}
+.tablewrap{overflow-x:auto;margin:20px 0}
+.col-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.col-table th{color:var(--dim);font-weight:600;font-size:.82rem;text-align:right;
+padding:8px 6px;border-bottom:1px solid var(--line);line-height:1.4}
+.col-table th:first-child,.col-table td:first-child{text-align:left}
+/* 項目名の列は折り返させない。狭い画面だと「C.ル/メー/ル」のように
+   1文字ずつ割れて読めなくなる。あふれる場合は .tablewrap が横スクロールする。 */
+.col-table td.label{white-space:nowrap;padding-right:12px;text-align:left}
+.col-table td.rank{color:var(--dim);width:2.2em;padding-right:4px}
+.col-table td{padding:11px 6px;border-bottom:1px solid var(--line);text-align:right}
+.col-table td.bar{width:46%;white-space:nowrap}
+.col-table .track{display:inline-block;width:calc(100% - 4.6em);height:14px;
+background:#243048;border-radius:4px;vertical-align:middle;overflow:hidden}
+.col-table .fill{display:block;height:100%;border-radius:4px}
+.col-table td.bar b{display:inline-block;width:4.4em;text-align:right;
+font-size:1.02rem}
+@media(max-width:520px){
+  .col-table td.bar .track{display:none}
+  .col-table td.bar{width:auto}
+  .col-table td.bar b{width:auto}
+}
+
 .col h2{font-size:1.1rem;margin:30px 0 10px}
 .method{background:var(--card);border:1px solid var(--line);border-radius:10px;
 padding:14px 18px;font-size:.92rem;color:var(--dim)}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 14px}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
 </head><body><div class="wrap">
 <h1>回収率239%、 ただし買えません</h1>
+<p class="subtitle">レース後にしか分からない条件で分けると、こうなる</p>
 <div class="col">
 <p>「逃げた馬の単勝を買えば回収率239%」。本当の数字ですが、この馬券は買えません。</p>
-<img src="running_style.png" alt="回収率239%、 ただし買えません">
+<div class='tablewrap'><table class='col-table'><thead><tr><th>脚質</th><th>事前に分かる情報だけ</th><th>レース後に脚質で分けると</th></tr></thead><tbody><tr><td class='label'>逃げ</td><td>79.7%</td><td class='bar'><span class='track'><span class='fill' style='width:95.8%;background:rgb(239,68,67)'></span></span><b style='color:rgb(239,68,67)'>239.4%</b></td></tr><tr><td class='label'>先行</td><td>77.9%</td><td class='bar'><span class='track'><span class='fill' style='width:47.6%;background:rgb(231,190,57)'></span></span><b style='color:rgb(231,190,57)'>118.9%</b></td></tr><tr><td class='label'>差し</td><td>71.3%</td><td class='bar'><span class='track'><span class='fill' style='width:21.1%;background:rgb(113,189,184)'></span></span><b style='color:rgb(113,189,184)'>52.7%</b></td></tr><tr><td class='label'>追込</td><td>58.8%</td><td class='bar'><span class='track'><span class='fill' style='width:7.6%;background:rgb(56,189,248)'></span></span><b style='color:rgb(56,189,248)'>19.0%</b></td></tr></tbody></table></div><p class='note'>右の逃げの優位は約176ポイント。左では+7.6ポイント（95%信頼区間 +0.4〜+15.3）まで縮む</p>
 <p>4コーナーで先頭だった馬を買えば儲かる、というのは確かに成り立ちます。ただし「4コーナーで先頭かどうか」が分かるのはレースが始まったあとです。発走前の自分には、どの馬がそうなるか分かりません。</p>
 <p>そこで、事前に分かる情報だけで同じことをやり直しました。その馬の<b>前走までの</b>平均的な位置取りで脚質を決め、今回を買う。3走以上の実績がある馬に限った結果が左の列です。239%は79.7%になりました。同じ母集団の全体は73.6%です。逃げ型とそれ以外の差は+7.6ポイント（95%信頼区間 +0.4〜+15.3）で、わずかに上回ってはいます。ただし後知恵で分けたときの約176ポイント差とは桁が違います。しかもこの残った差では、払戻率の壁は越えられません。</p>
 <p>過去のデータで見つかる「儲かる条件」の多くは、この形をしています。結果を知ってから分け方を決めているので、当然よく見える。見分け方は単純で、<b>その条件は発走前に分かるか</b>と問うだけです。</p>

@@ -20,10 +20,19 @@ body{margin:0;background:var(--bg);color:var(--ink);
 .wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
 header{padding:36px 0 8px}
 header img{width:100%;border-radius:14px;display:block}
-h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em}
-h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+/* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
+   モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
+   見出しは 1.3 前後に締める。 */
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em;line-height:1.35}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);line-height:1.4}
+h3{line-height:1.4}
 p{margin:12px 0}
-.lead{color:var(--dim)}
+/* 本文は必ず --ink。--dim は注記・キャプション・補助情報だけに使う。
+   地の文に --dim を当てると、規格上のコントラストは足りていても
+   彩度の低い青が暗い青に乗って「かすむ」(トップだけ --dim になっていた)。 */
+.lead{color:var(--ink)}
+.note,figcaption,.src{color:var(--dim);font-size:.88rem}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
 .kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
 .kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
@@ -50,19 +59,42 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
 .adlabel{display:block;font-size:.72rem;color:var(--dim);letter-spacing:.08em;
 margin-bottom:6px}
 
-.col img{width:100%;border-radius:12px;display:block;margin:20px 0}
+.tablewrap{overflow-x:auto;margin:20px 0}
+.col-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.col-table th{color:var(--dim);font-weight:600;font-size:.82rem;text-align:right;
+padding:8px 6px;border-bottom:1px solid var(--line);line-height:1.4}
+.col-table th:first-child,.col-table td:first-child{text-align:left}
+/* 項目名の列は折り返させない。狭い画面だと「C.ル/メー/ル」のように
+   1文字ずつ割れて読めなくなる。あふれる場合は .tablewrap が横スクロールする。 */
+.col-table td.label{white-space:nowrap;padding-right:12px;text-align:left}
+.col-table td.rank{color:var(--dim);width:2.2em;padding-right:4px}
+.col-table td{padding:11px 6px;border-bottom:1px solid var(--line);text-align:right}
+.col-table td.bar{width:46%;white-space:nowrap}
+.col-table .track{display:inline-block;width:calc(100% - 4.6em);height:14px;
+background:#243048;border-radius:4px;vertical-align:middle;overflow:hidden}
+.col-table .fill{display:block;height:100%;border-radius:4px}
+.col-table td.bar b{display:inline-block;width:4.4em;text-align:right;
+font-size:1.02rem}
+@media(max-width:520px){
+  .col-table td.bar .track{display:none}
+  .col-table td.bar{width:auto}
+  .col-table td.bar b{width:auto}
+}
+
 .col h2{font-size:1.1rem;margin:30px 0 10px}
 .method{background:var(--card);border:1px solid var(--line);border-radius:10px;
 padding:14px 18px;font-size:.92rem;color:var(--dim)}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 14px}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
 </head><body><div class="wrap">
 <h1>「内枠有利」は 回収率に出ない</h1>
+<p class="subtitle">枠番だけで買い方を変えても、収支は動かない</p>
 <div class="col">
 <p>内枠が有利、というのは競馬でいちばんよく聞く話のひとつです。単勝回収率で見るかぎり、そこに差はありませんでした。</p>
-<img src="frame_no.png" alt="「内枠有利」は 回収率に出ない">
+<div class='tablewrap'><table class='col-table'><thead><tr><th>枠</th><th>勝率</th><th>単勝回収率</th></tr></thead><tbody><tr><td class='label'>1枠</td><td>7.2%</td><td class='bar'><span class='track'><span class='fill' style='width:89.5%;background:rgb(117,189,180)'></span></span><b style='color:rgb(117,189,180)'>76.1%</b></td></tr><tr><td class='label'>2枠</td><td>6.7%</td><td class='bar'><span class='track'><span class='fill' style='width:80.9%;background:rgb(244,124,53)'></span></span><b style='color:rgb(244,124,53)'>68.8%</b></td></tr><tr><td class='label'>3枠</td><td>7.0%</td><td class='bar'><span class='track'><span class='fill' style='width:80.0%;background:rgb(242,108,57)'></span></span><b style='color:rgb(242,108,57)'>68.0%</b></td></tr><tr><td class='label'>4枠</td><td>7.2%</td><td class='bar'><span class='track'><span class='fill' style='width:84.3%;background:rgb(250,184,37)'></span></span><b style='color:rgb(250,184,37)'>71.7%</b></td></tr><tr><td class='label'>5枠</td><td>7.5%</td><td class='bar'><span class='track'><span class='fill' style='width:87.8%;background:rgb(165,190,129)'></span></span><b style='color:rgb(165,190,129)'>74.6%</b></td></tr><tr><td class='label'>6枠</td><td>7.5%</td><td class='bar'><span class='track'><span class='fill' style='width:87.7%;background:rgb(169,190,125)'></span></span><b style='color:rgb(169,190,125)'>74.5%</b></td></tr><tr><td class='label'>7枠</td><td>7.4%</td><td class='bar'><span class='track'><span class='fill' style='width:85.5%;background:rgb(229,190,59)'></span></span><b style='color:rgb(229,190,59)'>72.7%</b></td></tr><tr><td class='label'>8枠</td><td>7.7%</td><td class='bar'><span class='track'><span class='fill' style='width:79.4%;background:rgb(241,98,60)'></span></span><b style='color:rgb(241,98,60)'>67.5%</b></td></tr></tbody></table></div><p class='note'>最大差 8.6ポイント。どの枠も信頼区間が重なる＝誤差の範囲</p>
 <p>勝率は1枠7.2%から8枠7.7%まで、ほとんど横並びです。回収率も最大で8.6ポイントしか違わず、どの枠も95%信頼区間が互いに重なります。つまり枠番の違いは、偶然の揺れと区別がつきません。</p>
 <p>これは「内枠が有利ではない」という意味ではありません。有利なら、その有利さはすでにオッズに織り込まれている、という意味です。みんなが知っている情報は、値段に入っています。</p>
 <p>枠順が発表されてから馬券を買い直すかどうか迷ったときは、枠番そのものではなく、その枠だとこの馬の走り方が変わるか、を考えたほうが実りがあります。</p>
