@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>回収率の高い騎手を 買い続けたら — 勝率予報</title>
+<meta name="description" content="「回収率の高い騎手を買え」は本当か。過去3年の成績で選んで、翌年に実際に買ったらどうなるかを試しました。">
+<link rel="canonical" href="https://akiaki4646.github.io/column/roi_persistence.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回収率の高い騎手を 買い続けたら — 勝率予報">
+<meta property="og:description" content="「回収率の高い騎手を買え」は本当か。過去3年の成績で選んで、翌年に実際に買ったらどうなるかを試しました。">
+<meta property="og:url" content="https://akiaki4646.github.io/column/roi_persistence.html">
+<meta property="og:image" content="https://akiaki4646.github.io/column/roi_persistence.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#0b1222;--card:#131c31;--ink:#e8eefb;--dim:#93a6c4;--sky:#38bdf8;--line:#24324e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+     line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
+header{padding:36px 0 8px}
+header img{width:100%;border-radius:14px;display:block}
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+p{margin:12px 0}
+.lead{color:var(--dim)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
+.kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
+         border-radius:12px;padding:14px 16px}
+.kpi b{display:block;font-size:1.5rem;color:var(--sky);line-height:1.3}
+.kpi span{color:var(--dim);font-size:.85rem}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-variant-numeric:tabular-nums}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--dim);font-weight:600;font-size:.85rem}
+.gap{color:var(--dim)}
+tr.thin td{color:var(--dim);opacity:.72}
+tr.thin td:first-child::after{content:" *";color:var(--sky)}
+a{color:var(--sky)}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
+       color:var(--dim);font-size:.85rem}
+.follow{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}
+.follow a{display:inline-block;padding:10px 18px;border:1px solid var(--sky);
+         border-radius:999px;color:var(--sky);text-decoration:none;font-size:.9rem}
+.follow a:hover{background:var(--sky);color:var(--bg)}
+@media(max-width:520px){.kpi div{flex:1 1 100%}}
+
+.col img{width:100%;border-radius:12px;display:block;margin:20px 0}
+.col h2{font-size:1.1rem;margin:30px 0 10px}
+.method{background:var(--card);border:1px solid var(--line);border-radius:10px;
+padding:14px 18px;font-size:.92rem;color:var(--dim)}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
+</head><body><div class="wrap">
+<h1>回収率の高い騎手を 買い続けたら</h1>
+<div class="col">
+<p>「回収率の高い騎手を買え」は本当か。過去3年の成績で選んで、翌年に実際に買ったらどうなるかを試しました。</p>
+<img src="roi_persistence.png" alt="回収率の高い騎手を 買い続けたら">
+<p>2023〜25年の単勝回収率で騎手を並べ、上位から順に選んで2026年の全騎乗を単勝で買う、という手順です。選ぶのに使った期間と、買う期間は一切重なっていません。</p>
+<p>結果は上のとおりで、上位10人を選んでも63.5%。騎手を選ばず全部買った75.8%を<b>下回りました</b>。前年までの回収率と翌年の回収率の相関は <b>r=+0.09</b>、ほぼ無関係です。</p>
+<p>面白いのは下側で、過去の回収率が低かった騎手は翌年も低いままでした。ただしこれも腕の話ではありません。下位10人が乗っていた馬の平均オッズは119.2倍で、全体の64.6倍より大幅に高い。人気薄にばかり乗る騎手は、前の表のとおり構造的に回収率が下がります。つまり上下どちらの端も、測っているのは騎手ではなく乗る馬でした。</p>
+<h2>集計方法</h2>
+<div class="method">選定期間 2023-01-01〜2025-12-31（500騎乗以上）、検証期間 2026-01-01〜（100騎乗以上）。回収率は騎乗数で重み付けした平均。</div>
+</div>
+<div class="follow">
+  <a href="../index.html">トップへ戻る</a>
+  <a href="./index.html">コラム一覧</a>
+  <a href="https://x.com/shoritsu_yoho">X</a>
+  <a href="https://note.com/shoritsu_yoho">note</a>
+</div>
+<footer><p>本記事の数値は過去のレース結果を集計したものです。20歳未満の方は馬券を購入できません。</p></footer>
+</div></body></html>
