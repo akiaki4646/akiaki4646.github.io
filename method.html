@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>予測のしくみ — 勝率予報</title>
+<meta name="description" content="勝率予報の予測がどう計算されているか、何ができて何ができないかの説明です。">
+<style>
+:root{--bg:#0b1222;--card:#131c31;--ink:#e8eefb;--dim:#93a6c4;--sky:#38bdf8;--line:#24324e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+     line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
+header{padding:36px 0 8px}
+header img{width:100%;border-radius:14px;display:block}
+/* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
+   モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
+   見出しは 1.3 前後に締める。 */
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em;line-height:1.35}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);line-height:1.4}
+h3{line-height:1.4}
+p{margin:12px 0}
+/* 本文は必ず --ink。--dim は注記・キャプション・補助情報だけに使う。
+   地の文に --dim を当てると、規格上のコントラストは足りていても
+   彩度の低い青が暗い青に乗って「かすむ」(トップだけ --dim になっていた)。 */
+.lead{color:var(--ink)}
+.note,figcaption,.src{color:var(--dim);font-size:.88rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
+.kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
+         border-radius:12px;padding:14px 16px}
+/* 大きい数字をネオンのアクセント色で光らせると、統計の記録ではなく
+   ゲームのスコア表示に見える。数字は本文色にし、アクセントは
+   リンクなど「押せるもの」の合図だけに使う。 */
+.kpi b{display:block;font-size:1.5rem;color:var(--ink);line-height:1.3}
+.kpi span{color:var(--dim);font-size:.85rem}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-variant-numeric:tabular-nums}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--dim);font-weight:600;font-size:.85rem}
+.gap{color:var(--dim)}
+tr.thin td{color:var(--dim);opacity:.72}
+tr.thin td:first-child::after{content:" *";color:var(--dim)}
+a{color:var(--sky)}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
+       color:var(--dim);font-size:.85rem}
+/* 発光する輪郭のカプセルボタンは煽り系サイトの語彙。
+   面で置いた落ち着いたボタンにして、角も丸めすぎない。 */
+.follow{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.follow a{display:inline-block;padding:10px 16px;border:1px solid var(--line);
+         background:var(--card);border-radius:8px;color:var(--sky);
+         text-decoration:none;font-size:.9rem}
+.follow a:hover{border-color:var(--sky)}
+@media(max-width:520px){.kpi div{flex:1 1 100%}}
+
+.legal h2{font-size:1.1rem;margin:32px 0 10px}
+.legal h2:first-of-type{margin-top:8px}
+.legal ul{padding-left:1.3em}
+.legal li{margin:4px 0}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
+</head><body><div class="wrap">
+<h1>予測のしくみ</h1>
+<div class="legal">
+
+<p>このサイトに出る勝率が、どうやって計算されているかの説明です。
+専門的な言い方をなるべく避けて書いています。</p>
+
+<h2>やっていること</h2>
+<p>過去のレース結果から機械学習のモデルを作り、
+出走する各馬が1着になる確率を計算しています。
+「この馬が勝つ」と1頭を選ぶのではなく、
+出走全頭に確率を割り当てて、その合計が100%になるようにしています。</p>
+
+<h2>使っている情報</h2>
+<ul>
+<li>その馬のこれまでの成績、着差、通過順位、上がりタイム</li>
+<li>騎手・調教師のそれまでの成績</li>
+<li>レースの条件（距離、コース、馬場状態、天候、出走頭数、クラス）</li>
+<li>血統、馬体重とその増減、レース間隔、枠順</li>
+<li>発走前の単勝オッズ</li>
+</ul>
+<p>全部で150あまりの項目を使っています。
+どの項目も<strong>そのレースより前の情報だけ</strong>から作っています。
+結果を見てから条件を決めると、過去のデータ上はいくらでも良い数字が作れてしまうためです。
+（この落とし穴そのものを扱った記事が
+<a href="./column/running_style.html">データコラム</a>にあります）</p>
+
+<h2>計算の手順</h2>
+<ol>
+<li>種類の違う4つのモデル（勾配ブースティング3種とニューラルネット1種）に、
+それぞれ確率を出させます</li>
+<li>4つの出力を、検証期間での成績にもとづいた重みで混ぜます</li>
+<li>混ぜた値を較正します。「60%」と出た馬が実際に60%勝つように、
+出力の目盛りを実績に合わせて引き直す処理です</li>
+<li>1レース内の合計が100%になるよう正規化します</li>
+</ol>
+<p>学習に使っているのは2023年から2025年までのレースで、
+それ以降のレースは学習に入れていません。
+このサイトに載っている予報は、学習に一度も使っていない期間のものです。</p>
+
+<h2>いつ計算して、いつ公開しているか</h2>
+<p>開催日の朝、<strong>第1レースの発走前</strong>に全レースぶんを計算し、
+その時点の値をそのまま保存・公開しています。
+結果が出てから数字を書き換えることはしていません。
+当たった予報だけを後から選んで見せることができない形にするためです。</p>
+
+<h2>できないこと（重要）</h2>
+<p>このモデルの精度は、<strong>単勝オッズから逆算される市場の確率とほぼ同じです</strong>。
+両者の相関は0.987で、精度を測るいくつかの指標では市場のほうがわずかに上でした。
+自分で検証して、そう出ています。</p>
+<p>つまりこのサイトが出しているのは
+「市場より当たる予測」ではなく「市場と同じくらい正確な確率を、
+発走前に、全頭ぶん、無料で見られる形にしたもの」です。
+この予報どおりに買っても、控除率のぶん回収率は100%を下回ります。
+馬券で利益が出ることを意味しません。</p>
+<p>それでも公開しているのは、
+<strong>言ったとおりの割合で起きているかどうか</strong>は、
+当たり外れとは別に確かめられる性質のもので、
+そこを記録として残すこと自体に意味があると考えているからです。
+検証結果は<a href="./index.html">トップページ</a>に載せています。</p>
+
+<h2>数字の限界</h2>
+<ul>
+<li>頭数の少ない確率帯（40%以上など）はサンプルが少なく、数字がぶれます。
+該当する行には印を付けています</li>
+<li>取消・除外が出た場合、その馬を除いた合計は100%になりません</li>
+<li>モデルは定期的に学習し直しており、時期によって傾向が変わることがあります</li>
+</ul>
+
+</div>
+
+<div class="follow">
+  <a href="./index.html">トップへ戻る</a>
+  <a href="./method.html">予測のしくみ</a>
+  <a href="./about.html">運営者情報</a>
+  <a href="./privacy.html">プライバシーポリシー</a>
+  <a href="./contact.html">お問い合わせ</a>
+</div>
+
+<footer><p>本記事の数値は自作の機械学習モデルの出力です。20歳未満の方は馬券を購入できません。</p></footer>
+</div></body></html>
