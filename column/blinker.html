@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ブリンカーは 初着用より継続着用 — 勝率予報</title>
+<meta name="description" content="ブリンカーを初めて着けた馬は変わる、と言われます。回収率で見ると、効いていたのは初着用ではなく継続着用でした。">
+<link rel="canonical" href="https://akiaki4646.github.io/column/blinker.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ブリンカーは 初着用より継続着用 — 勝率予報">
+<meta property="og:description" content="ブリンカーを初めて着けた馬は変わる、と言われます。回収率で見ると、効いていたのは初着用ではなく継続着用でした。">
+<meta property="og:url" content="https://akiaki4646.github.io/column/blinker.html">
+<meta property="og:image" content="https://akiaki4646.github.io/column/blinker.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#0b1222;--card:#131c31;--ink:#e8eefb;--dim:#93a6c4;--sky:#38bdf8;--line:#24324e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+     line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
+header{padding:36px 0 8px}
+header img{width:100%;border-radius:14px;display:block}
+/* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
+   モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
+   見出しは 1.3 前後に締める。 */
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em;line-height:1.35}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);line-height:1.4}
+h3{line-height:1.4}
+p{margin:12px 0}
+/* 本文は必ず --ink。--dim は注記・キャプション・補助情報だけに使う。
+   地の文に --dim を当てると、規格上のコントラストは足りていても
+   彩度の低い青が暗い青に乗って「かすむ」(トップだけ --dim になっていた)。 */
+.lead{color:var(--ink)}
+.note,figcaption,.src{color:var(--dim);font-size:.88rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
+.kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
+         border-radius:12px;padding:14px 16px}
+/* 大きい数字をネオンのアクセント色で光らせると、統計の記録ではなく
+   ゲームのスコア表示に見える。数字は本文色にし、アクセントは
+   リンクなど「押せるもの」の合図だけに使う。 */
+.kpi b{display:block;font-size:1.5rem;color:var(--ink);line-height:1.3}
+.kpi span{color:var(--dim);font-size:.85rem}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-variant-numeric:tabular-nums}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--dim);font-weight:600;font-size:.85rem}
+.gap{color:var(--dim)}
+tr.thin td{color:var(--dim);opacity:.72}
+tr.thin td:first-child::after{content:" *";color:var(--dim)}
+a{color:var(--sky)}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
+       color:var(--dim);font-size:.85rem}
+/* 発光する輪郭のカプセルボタンは煽り系サイトの語彙。
+   面で置いた落ち着いたボタンにして、角も丸めすぎない。 */
+.follow{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.follow a{display:inline-block;padding:10px 16px;border:1px solid var(--line);
+         background:var(--card);border-radius:8px;color:var(--sky);
+         text-decoration:none;font-size:.9rem}
+.follow a:hover{border-color:var(--sky)}
+@media(max-width:520px){.kpi div{flex:1 1 100%}}
+
+.adbox{margin:28px 0}
+.adlabel{display:block;font-size:.72rem;color:var(--dim);letter-spacing:.08em;
+margin-bottom:6px}
+
+.tablewrap{overflow-x:auto;margin:20px 0}
+.col-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.col-table th{color:var(--dim);font-weight:600;font-size:.82rem;text-align:right;
+padding:8px 6px;border-bottom:1px solid var(--line);line-height:1.4}
+.col-table th:first-child,.col-table td:first-child{text-align:left}
+/* 項目名の列は折り返させない。狭い画面だと「C.ル/メー/ル」のように
+   1文字ずつ割れて読めなくなる。あふれる場合は .tablewrap が横スクロールする。 */
+.col-table td.label{white-space:nowrap;padding-right:12px;text-align:left}
+.col-table td.rank{color:var(--dim);width:2.2em;padding-right:4px}
+.col-table td{padding:11px 6px;border-bottom:1px solid var(--line);text-align:right}
+.col-table td.bar{width:46%;white-space:nowrap}
+.col-table .track{display:inline-block;width:calc(100% - 4.6em);height:14px;
+background:#243048;border-radius:4px;vertical-align:middle;overflow:hidden}
+.col-table .fill{display:block;height:100%;border-radius:4px}
+.col-table td.bar b{display:inline-block;width:4.4em;text-align:right;
+font-size:1.02rem}
+@media(max-width:520px){
+  .col-table td.bar .track{display:none}
+  .col-table td.bar{width:auto}
+  .col-table td.bar b{width:auto}
+}
+
+.col h2{font-size:1.1rem;margin:30px 0 10px}
+.method{background:var(--card);border:1px solid var(--line);border-radius:10px;
+padding:14px 18px;font-size:.92rem;color:var(--dim)}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 14px}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
+</head><body><div class="wrap">
+<h1>ブリンカーは 初着用より継続着用</h1>
+<p class="subtitle">「初ブリンカーは変わる」を回収率で確かめる</p>
+<div class="col">
+<p>ブリンカーを初めて着けた馬は変わる、と言われます。回収率で見ると、効いていたのは初着用ではなく継続着用でした。</p>
+<div class='tablewrap'><table class='col-table'><thead><tr><th>区分</th><th>頭数</th><th>勝率</th><th>単勝回収率</th></tr></thead><tbody><tr><td class='label'>ブリンカー無し</td><td>131,298</td><td>7.55%</td><td class='bar'><span class='track'><span class='fill' style='width:73.9%;background:rgb(87,189,213)'></span></span><b style='color:rgb(87,189,213)'>70.2%</b></td></tr><tr><td class='label'>初着用</td><td>4,436</td><td>5.41%</td><td class='bar'><span class='track'><span class='fill' style='width:76.1%;background:rgb(141,189,154)'></span></span><b style='color:rgb(141,189,154)'>72.3%</b></td></tr><tr><td class='label'>継続着用</td><td>16,137</td><td>6.49%</td><td class='bar'><span class='track'><span class='fill' style='width:87.5%;background:rgb(240,82,64)'></span></span><b style='color:rgb(240,82,64)'>83.1%</b></td></tr></tbody></table></div><p class='note'>継続着用 −無し +13.0pt（+2.7〜+24.1）＝有意 ／ 初着用 −無し +2.1pt（-17.9〜+25.5）＝0を含む</p>
+<p>初着用の回収率は72.3%、ブリンカー無しは70.2%。差は+2.1ポイントですが、95%信頼区間は-17.9〜+25.5で0をまたぎます。勝率にいたっては初着用5.41%と、無しの7.55%より低い。<b>「初ブリンカーで変わる」を支える数字は出てきませんでした。</b></p>
+<p>一方で継続着用は回収率83.1%。無しとの差は+13.0ポイント（95%信頼区間 +2.7〜+24.1）で、こちらは0をまたぎません。勝率は6.49%と無しより低いのに、回収率は高い。<b>勝ちにくいわりにオッズが甘い</b>、という形です。</p>
+<p>説明はつきます。ブリンカーを着け続けている馬は、着けなければ走らない馬でもあります。気性に問題があると見られれば人気は落ちる。落ちた分が、実際の弱さより大きかった——というのが、この数字の素直な読み方です。</p>
+<p>初着用のほうが話題になるのは、変化が目に見えるからでしょう。出走表に印が新しく付けば、誰でも気づきます。気づかれた時点で、その情報は値段に入ります。<b>気づかれない継続着用のほうに差が残っている</b>のは、そう考えると自然です。</p>
+<p>ただし継続着用でも回収率は83.1%で、100%には届きません。買い続けて利益が出る水準ではなく、負け方が相対的に小さいというだけです。また、この集計はクラスも距離も揃えていません。ブリンカー着用馬がどのクラスに偏っているかは見ていないので、そこが効いている可能性は残ります。</p>
+<h2>集計方法</h2>
+<div class="method">その馬の前走までにブリンカー着用歴があるかで初着用と継続着用を分けた（2走目以降のみ対象）。回収率は単勝100円あたりの払戻。信頼区間はブートストラップ法（3,000回）。</div>
+</div>
+<div class="adbox"><span class="adlabel">スポンサーリンク</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3010782230345323" data-ad-slot="1245965145" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="follow">
+  <a href="../index.html">トップへ戻る</a>
+  <a href="./index.html">コラム一覧</a>
+  <a href="https://x.com/shoritsu_yoho">X</a>
+  <a href="https://note.com/shoritsu_yoho">note</a>
+</div>
+<footer><p>本記事の数値は過去のレース結果を集計したものです。20歳未満の方は馬券を購入できません。</p></footer>
+</div></body></html>

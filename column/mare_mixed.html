@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>牝馬は混合戦で 不利で、しかも割高 — 勝率予報</title>
+<meta name="description" content="牝馬は牡馬相手だと苦しい、と言われます。そのとおりでした。ただし話はそこで終わりません。">
+<link rel="canonical" href="https://akiaki4646.github.io/column/mare_mixed.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="牝馬は混合戦で 不利で、しかも割高 — 勝率予報">
+<meta property="og:description" content="牝馬は牡馬相手だと苦しい、と言われます。そのとおりでした。ただし話はそこで終わりません。">
+<meta property="og:url" content="https://akiaki4646.github.io/column/mare_mixed.html">
+<meta property="og:image" content="https://akiaki4646.github.io/column/mare_mixed.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#0b1222;--card:#131c31;--ink:#e8eefb;--dim:#93a6c4;--sky:#38bdf8;--line:#24324e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+     line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
+header{padding:36px 0 8px}
+header img{width:100%;border-radius:14px;display:block}
+/* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
+   モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
+   見出しは 1.3 前後に締める。 */
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em;line-height:1.35}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);line-height:1.4}
+h3{line-height:1.4}
+p{margin:12px 0}
+/* 本文は必ず --ink。--dim は注記・キャプション・補助情報だけに使う。
+   地の文に --dim を当てると、規格上のコントラストは足りていても
+   彩度の低い青が暗い青に乗って「かすむ」(トップだけ --dim になっていた)。 */
+.lead{color:var(--ink)}
+.note,figcaption,.src{color:var(--dim);font-size:.88rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
+.kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
+         border-radius:12px;padding:14px 16px}
+/* 大きい数字をネオンのアクセント色で光らせると、統計の記録ではなく
+   ゲームのスコア表示に見える。数字は本文色にし、アクセントは
+   リンクなど「押せるもの」の合図だけに使う。 */
+.kpi b{display:block;font-size:1.5rem;color:var(--ink);line-height:1.3}
+.kpi span{color:var(--dim);font-size:.85rem}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-variant-numeric:tabular-nums}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--dim);font-weight:600;font-size:.85rem}
+.gap{color:var(--dim)}
+tr.thin td{color:var(--dim);opacity:.72}
+tr.thin td:first-child::after{content:" *";color:var(--dim)}
+a{color:var(--sky)}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
+       color:var(--dim);font-size:.85rem}
+/* 発光する輪郭のカプセルボタンは煽り系サイトの語彙。
+   面で置いた落ち着いたボタンにして、角も丸めすぎない。 */
+.follow{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.follow a{display:inline-block;padding:10px 16px;border:1px solid var(--line);
+         background:var(--card);border-radius:8px;color:var(--sky);
+         text-decoration:none;font-size:.9rem}
+.follow a:hover{border-color:var(--sky)}
+@media(max-width:520px){.kpi div{flex:1 1 100%}}
+
+.adbox{margin:28px 0}
+.adlabel{display:block;font-size:.72rem;color:var(--dim);letter-spacing:.08em;
+margin-bottom:6px}
+
+.tablewrap{overflow-x:auto;margin:20px 0}
+.col-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.col-table th{color:var(--dim);font-weight:600;font-size:.82rem;text-align:right;
+padding:8px 6px;border-bottom:1px solid var(--line);line-height:1.4}
+.col-table th:first-child,.col-table td:first-child{text-align:left}
+/* 項目名の列は折り返させない。狭い画面だと「C.ル/メー/ル」のように
+   1文字ずつ割れて読めなくなる。あふれる場合は .tablewrap が横スクロールする。 */
+.col-table td.label{white-space:nowrap;padding-right:12px;text-align:left}
+.col-table td.rank{color:var(--dim);width:2.2em;padding-right:4px}
+.col-table td{padding:11px 6px;border-bottom:1px solid var(--line);text-align:right}
+.col-table td.bar{width:46%;white-space:nowrap}
+.col-table .track{display:inline-block;width:calc(100% - 4.6em);height:14px;
+background:#243048;border-radius:4px;vertical-align:middle;overflow:hidden}
+.col-table .fill{display:block;height:100%;border-radius:4px}
+.col-table td.bar b{display:inline-block;width:4.4em;text-align:right;
+font-size:1.02rem}
+@media(max-width:520px){
+  .col-table td.bar .track{display:none}
+  .col-table td.bar{width:auto}
+  .col-table td.bar b{width:auto}
+}
+
+.col h2{font-size:1.1rem;margin:30px 0 10px}
+.method{background:var(--card);border:1px solid var(--line);border-radius:10px;
+padding:14px 18px;font-size:.92rem;color:var(--dim)}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 14px}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
+</head><body><div class="wrap">
+<h1>牝馬は混合戦で 不利で、しかも割高</h1>
+<p class="subtitle">牝馬限定戦と混合戦で、牝馬の成績を比べる</p>
+<div class="col">
+<p>牝馬は牡馬相手だと苦しい、と言われます。そのとおりでした。ただし話はそこで終わりません。</p>
+<div class='tablewrap'><table class='col-table'><thead><tr><th>区分</th><th>頭数</th><th>勝率</th><th>単勝回収率</th></tr></thead><tbody><tr><td class='label'>混合戦の牡・セン</td><td>102,894</td><td>7.99%</td><td class='bar'><span class='track'><span class='fill' style='width:88.2%;background:rgb(241,92,61)'></span></span><b style='color:rgb(241,92,61)'>75.0%</b></td></tr><tr><td class='label'>混合戦の牝馬</td><td>47,061</td><td>5.86%</td><td class='bar'><span class='track'><span class='fill' style='width:78.9%;background:rgb(96,189,204)'></span></span><b style='color:rgb(96,189,204)'>67.0%</b></td></tr><tr><td class='label'>牝馬限定戦の牝馬</td><td>26,550</td><td>7.13%</td><td class='bar'><span class='track'><span class='fill' style='width:79.2%;background:rgb(108,189,190)'></span></span><b style='color:rgb(108,189,190)'>67.4%</b></td></tr></tbody></table></div><p class='note'>混合戦での牝馬と牡・センの回収率差 -8.0ポイント（95%信頼区間 -14.2〜-1.4）＝誤差では説明できない</p>
+<p>混合戦に出た牝馬の勝率は5.86%、同じレースの牡・センは7.99%。勝率で差がつくのは予想どおりです。注目したいのは回収率のほうで、牝馬67.0%に対し牡・セン75.0%。差は-8.0ポイント（95%信頼区間 -14.2〜-1.4）で、0をまたぎません。</p>
+<p>回収率に差が出るのは、勝率の差とは意味が違います。勝率が低いだけなら、その分オッズが上がって回収率は釣り合うはずです。釣り合っていないということは、<b>牝馬の不利が、値段に入りきっていない</b>ということになります。不利だと分かっているのに、分かっている以上に不利だった、という形です。</p>
+<p>では牝馬同士なら妙味があるのか。これも違いました。牝馬限定戦の牝馬は勝率7.13%まで上がりますが、回収率は67.4%で、混合戦の67.0%とほとんど変わりません。相手が弱くなれば勝率は上がる。ただしその分オッズも下がるので、手元に残る比率は動かない。<b>牝馬が割高なのは、相手が誰かとは関係がないようです。</b></p>
+<p>理由までは、この集計からは言えません。牝馬に人気が集まりやすい何かがあるのかもしれないし、混合戦に出てくる牝馬の選ばれ方に偏りがあるのかもしれません。分かるのは結果の形だけです。</p>
+<p>念のため書いておくと、どの区分も回収率は100%を大きく下回っています。「牡馬を買えば勝てる」という話ではありません。控除率のぶん全員が負ける中で、<b>負けの大きさに差がある</b>、というだけの話です。</p>
+<h2>集計方法</h2>
+<div class="method">同一レースの出走馬が全て牝馬なら牝馬限定戦、それ以外を混合戦として分類。回収率は単勝100円あたりの払戻。信頼区間はブートストラップ法（3,000回）。距離・クラス・年齢は揃えていない。</div>
+</div>
+<div class="adbox"><span class="adlabel">スポンサーリンク</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3010782230345323" data-ad-slot="1245965145" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="follow">
+  <a href="../index.html">トップへ戻る</a>
+  <a href="./index.html">コラム一覧</a>
+  <a href="https://x.com/shoritsu_yoho">X</a>
+  <a href="https://note.com/shoritsu_yoho">note</a>
+</div>
+<footer><p>本記事の数値は過去のレース結果を集計したものです。20歳未満の方は馬券を購入できません。</p></footer>
+</div></body></html>
