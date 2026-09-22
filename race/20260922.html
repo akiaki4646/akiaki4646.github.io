@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026/9/22(火)の勝率予報 — 全11レース</title>
+<meta name="description" content="2026/9/22(火)の全11レース、出走全頭の勝率をAIが発走前に計算した一覧です。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026/9/22(火)の勝率予報 — 全11レース">
+<meta property="og:description" content="中山 全11レース、出走全頭の勝率です。すべて発走前に計算しています。">
+<meta property="og:url" content="https://akiaki4646.github.io/race/20260922.html">
+<meta property="og:image" content="https://akiaki4646.github.io/ogp_20260922.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#0b1222;--card:#131c31;--ink:#e8eefb;--dim:#93a6c4;--sky:#38bdf8;--line:#24324e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+     line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
+header{padding:36px 0 8px}
+header img{width:100%;border-radius:14px;display:block}
+/* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
+   モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
+   見出しは 1.3 前後に締める。 */
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em;line-height:1.35}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);line-height:1.4}
+h3{line-height:1.4}
+p{margin:12px 0}
+/* 本文は必ず --ink。--dim は注記・キャプション・補助情報だけに使う。
+   地の文に --dim を当てると、規格上のコントラストは足りていても
+   彩度の低い青が暗い青に乗って「かすむ」(トップだけ --dim になっていた)。 */
+.lead{color:var(--ink)}
+.note,figcaption,.src{color:var(--dim);font-size:.88rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
+.kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
+         border-radius:12px;padding:14px 16px}
+/* 大きい数字をネオンのアクセント色で光らせると、統計の記録ではなく
+   ゲームのスコア表示に見える。数字は本文色にし、アクセントは
+   リンクなど「押せるもの」の合図だけに使う。 */
+.kpi b{display:block;font-size:1.5rem;color:var(--ink);line-height:1.3}
+.kpi span{color:var(--dim);font-size:.85rem}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-variant-numeric:tabular-nums}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--dim);font-weight:600;font-size:.85rem}
+.gap{color:var(--dim)}
+tr.thin td{color:var(--dim);opacity:.72}
+tr.thin td:first-child::after{content:" *";color:var(--dim)}
+a{color:var(--sky)}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
+       color:var(--dim);font-size:.85rem}
+/* 発光する輪郭のカプセルボタンは煽り系サイトの語彙。
+   面で置いた落ち着いたボタンにして、角も丸めすぎない。 */
+.follow{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.follow a{display:inline-block;padding:10px 16px;border:1px solid var(--line);
+         background:var(--card);border-radius:8px;color:var(--sky);
+         text-decoration:none;font-size:.9rem}
+.follow a:hover{border-color:var(--sky)}
+@media(max-width:520px){.kpi div{flex:1 1 100%}}
+
+.adbox{margin:28px 0}
+.adlabel{display:block;font-size:.72rem;color:var(--dim);letter-spacing:.08em;
+margin-bottom:6px}
+
+.race{background:var(--card);border:1px solid var(--line);border-radius:12px;
+      padding:16px 18px;margin:16px 0}
+.race h3{margin:0 0 4px;font-size:1.05rem}
+.race .meta{color:var(--dim);font-size:.85rem;margin:0 0 10px}
+.race table{margin:0}
+.race td.mk{width:2.2em;text-align:center;color:var(--sky);font-weight:700}
+.race td.no{width:2.6em;text-align:right;color:var(--dim);font-variant-numeric:tabular-nums}
+.race td.nm{text-align:left}
+.race td.pb{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.race tr.top td{color:var(--ink)}
+.race tr:not(.top) td{color:var(--dim)}
+.done{opacity:.55}
+.badge{display:inline-block;font-size:.72rem;border:1px solid var(--line);
+       border-radius:999px;padding:1px 8px;margin-left:6px;color:var(--dim)}
+.adslot{margin:24px 0;min-height:0}
+.nav{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+.nav a{display:inline-block;padding:9px 16px;border:1px solid var(--line);
+       background:var(--card);border-radius:8px;color:var(--sky);
+       text-decoration:none;font-size:.88rem}
+.nav a:hover{border-color:var(--sky)}
+.archive li{margin:6px 0}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
+</head><body><div class="wrap">
+
+<h1>2026/9/22(火) の勝率予報</h1>
+<p class="lead">中山 全11レース、出走全頭の勝率です。
+すべて<strong>発走前</strong>に計算し、そのまま公開しています。</p>
+
+<div class="nav">
+  <a href="../index.html">答え合わせの記録を見る</a>
+  <a href="./index.html">過去の予報一覧</a>
+</div>
+
+<div class="adslot"></div>
+
+<div class='race' id='062'><h3>中山2R</h3><p class='meta'>10:20 発走 / 14頭</p><table><tbody><tr class='top'><td class='mk'>◎</td><td class='no'>08</td><td class='nm'>バタフライ</td><td class='pb'>20.9%</td></tr><tr class='top'><td class='mk'>○</td><td class='no'>09</td><td class='nm'>ニシノムホウモノ</td><td class='pb'>17.5%</td></tr><tr class='top'><td class='mk'>▲</td><td class='no'>04</td><td class='nm'>スペシャルサンクス</td><td class='pb'>15.1%</td></tr><tr><td class='mk'></td><td class='no'>13</td><td class='nm'>トーセンルルド</td><td class='pb'>14.9%</td></tr><tr><td class='mk'></td><td class='no'>12</td><td class='nm'>ダンシングアワー</td><td class='pb'>6.6%</td></tr><tr><td class='mk'></td><td class='no'>10</td><td class='nm'>ニシノアトール</td><td class='pb'>5.7%</td></tr><tr><td class='mk'></td><td class='no'>07</td><td class='nm'>シジマ</td><td class='pb'>5.4%</td></tr><tr><td class='mk'></td><td class='no'>05</td><td class='nm'>ナリタライズ</td><td class='pb'>4.3%</td></tr><tr><td class='mk'></td><td class='no'>02</td><td class='nm'>ゴータマ</td><td class='pb'>3.0%</td></tr><tr><td class='mk'></td><td class='no'>03</td><td class='nm'>ナナレイ</td><td class='pb'>2.0%</td></tr><tr><td class='mk'></td><td class='no'>14</td><td class='nm'>タワーウマザンマイ</td><td class='pb'>1.2%</td></tr><tr><td class='mk'></td><td class='no'>11</td><td class='nm'>ハミングリップス</td><td class='pb'>1.2%</td></tr><tr><td class='mk'></td><td class='no'>06</td><td class='nm'>ニシノタカオ</td><td class='pb'>1.2%</td></tr><tr><td class='mk'></td><td class='no'>01</td><td class='nm'>スノーキャップ</td><td class='pb'>0.9%</td></tr></tbody></table></div><div class='race' id='063'><h3>中山3R</h3><p class='meta'>10:50 発走 / 11頭</p><table><tbody><tr class='top'><td class='mk'>◎</td><td class='no'>05</td><td class='nm'>ドナビッグベン</td><td class='pb'>39.9%</td></tr><tr class='top'><td class='mk'>○</td><td class='no'>06</td><td class='nm'>ベアアミーチ</td><td class='pb'>18.8%</td></tr><tr class='top'><td class='mk'>▲</td><td class='no'>08</td><td class='nm'>ギムナシオン</td><td class='pb'>16.9%</td></tr><tr><td class='mk'></td><td class='no'>03</td><td class='nm'>ソウラスフロス</td><td class='pb'>6.6%</td></tr><tr><td class='mk'></td><td class='no'>04</td><td class='nm'>シュアシング</td><td class='pb'>4.9%</td></tr><tr><td class='mk'></td><td class='no'>07</td><td class='nm'>スウィット</td><td class='pb'>4.6%</td></tr><tr><td class='mk'></td><td class='no'>10</td><td class='nm'>ダンシングリリー</td><td class='pb'>2.1%</td></tr><tr><td class='mk'></td><td class='no'>09</td><td class='nm'>ヤマニンスペッキオ</td><td class='pb'>1.8%</td></tr><tr><td class='mk'></td><td class='no'>02</td><td class='nm'>モミスケ</td><td class='pb'>1.8%</td></tr><tr><td class='mk'></td><td class='no'>01</td><td class='nm'>ビスクヴィート</td><td class='pb'>1.8%</td></tr><tr><td class='mk'></td><td class='no'>11</td><td class='nm'>ヒーローシー</td><td class='pb'>0.7%</td></tr></tbody></table></div><div class='race' id='064'><h3>中山4R</h3><p class='meta'>11:20 発走 / 10頭</p><table><tbody><tr class='top'><td class='mk'>◎</td><td class='no'>04</td><td class='nm'>キャピタルストーン</td><td class='pb'>29.0%</td></tr><tr class='top'><td class='mk'>○</td><td class='no'>06</td><td class='nm'>クシェドゥソレイユ</td><td class='pb'>19.4%</td></tr><tr class='top'><td class='mk'>▲</td><td class='no'>03</td><td class='nm'>アニエーネ</td><td class='pb'>16.2%</td></tr><tr><td class='mk'></td><td class='no'>07</td><td class='nm'>ドナリー</td><td class='pb'>10.1%</td></tr><tr><td class='mk'></td><td class='no'>05</td><td class='nm'>トーセンシントラ</td><td class='pb'>8.4%</td></tr><tr><td class='mk'></td><td class='no'>01</td><td class='nm'>サンアンドスターズ</td><td class='pb'>6.1%</td></tr><tr><td class='mk'></td><td class='no'>09</td><td class='nm'>コスモバルムンク</td><td class='pb'>5.3%</td></tr><tr><td class='mk'></td><td class='no'>08</td><td class='nm'>エレスレイプニル</td><td class='pb'>3.1%</td></tr><tr><td class='mk'></td><td class='no'>02</td><td class='nm'>マイネルアルディ</td><td class='pb'>1.4%</td></tr><tr><td class='mk'></td><td class='no'>10</td><td class='nm'>キャッチアップ</td><td class='pb'>0.9%</td></tr></tbody></table></div><div class='race' id='065'><h3>中山5R</h3><p class='meta'>12:10 発走 / 15頭</p><table><tbody><tr class='top'><td class='mk'>◎</td><td class='no'>06</td><td class='nm'>ナイトオブマース</td><td class='pb'>31.2%</td></tr><tr class='top'><td class='mk'>○</td><td class='no'>10</td><td class='nm'>ロックドダイアリー</td><td class='pb'>12.3%</td></tr><tr class='top'><td class='mk'>▲</td><td class='no'>02</td><td class='nm'>ローズサルーテ</td><td class='pb'>12.3%</td></tr><tr><td class='mk'></td><td class='no'>08</td><td class='nm'>リネンエトワール</td><td class='pb'>9.9%</td></tr><tr><td class='mk'></td><td class='no'>01</td><td class='nm'>ビーハッピーデイ</td><td class='pb'>8.2%</td></tr><tr><td class='mk'></td><td class='no'>13</td><td class='nm'>ポテ</td><td class='pb'>4.8%</td></tr><tr><td class='mk'></td><td class='no'>15</td><td class='nm'>セレネリオン</td><td class='pb'>4.6%</td></tr><tr><td class='mk'></td><td class='no'>07</td><td class='nm'>ジェイエルターボ</td><td class='pb'>4.3%</td></tr><tr><td class='mk'></td><td class='no'>12</td><td class='nm'>フェスタベラ</td><td class='pb'>3.7%</td></tr><tr><td class='mk'></td><td class='no'>09</td><td class='nm'>コールオンユー</td><td class='pb'>2.5%</td></tr><tr><td class='mk'></td><td class='no'>05</td><td class='nm'>ナツハゼ</td><td class='pb'>2.5%</td></tr><tr><td class='mk'></td><td class='no'>11</td><td class='nm'>アマンドショコラ</td><td class='pb'>1.3%</td></tr><tr><td class='mk'></td><td class='no'>04</td><td class='nm'>コスモグリュー</td><td class='pb'>1.1%</td></tr><tr><td class='mk'></td><td class='no'>03</td><td class='nm'>アイファーエリース</td><td class='pb'>0.7%</td></tr><tr><td class='mk'></td><td class='no'>14</td><td class='nm'>ステラストリーム</td><td class='pb'>0.5%</td></tr></tbody></table></div><div class='race' id='066'><h3>中山6R</h3><p class='meta'>12:40 発走 / 8頭</p><table><tbody><tr class='top'><td class='mk'>◎</td><td class='no'>05</td><td class='nm'>テンポアニマート</td><td class='pb'>37.9%</td></tr><tr class='top'><td class='mk'>○</td><td class='no'>06</td><td class='nm'>メダルボーイ</td><td class='pb'>21.5%</td></tr><tr class='top'><td class='mk'>▲</td><td class='no'>03</td><td class='nm'>ヤマメゴリュウ</td><td class='pb'>11.7%</td></tr><tr><td class='mk'></td><td class='no'>08</td><td class='nm'>スリーボンド</td><td class='pb'>9.6%</td></tr><tr><td class='mk'></td><td class='no'>01</td><td class='nm'>ネオロマーネ</td><td class='pb'>9.6%</td></tr><tr><td class='mk'></td><td class='no'>02</td><td class='nm'>シンヒダカムーン</td><td class='pb'>4.7%</td></tr><tr><td class='mk'></td><td class='no'>04</td><td class='nm'>パッションノーヴァ</td><td class='pb'>3.7%</td></tr><tr><td class='mk'></td><td class='no'>07</td><td class='nm'>ゴクラクチョウカ</td><td class='pb'>1.3%</td></tr></tbody></table></div><div class='race' id='067'><h3>中山7R</h3><p class='meta'>13:10 発走 / 14頭</p><table><tbody><tr class='top'><td class='mk'>◎</td><td class='no'>07</td><td class='nm'>ユアフェリシティ</td><td class='pb'>53.9%</td></tr><tr class='top'><td class='mk'>○</td><td class='no'>01</td><td class='nm'>サムシングニュー</td><td class='pb'>10.2%</td></tr><tr class='top'><td class='mk'>▲</td><td class='no'>03</td><td class='nm'>タケルムサシ</td><td class='pb'>8.5%</td></tr><tr><td class='mk'></td><td class='no'>14</td><td class='nm'>アンシュウマト</td><td class='pb'>6.6%</td></tr><tr><td class='mk'></td><td class='no'>12</td><td class='nm'>レボルシオン</td><td class='pb'>5.2%</td></tr><tr><td class='mk'></td><td class='no'>13</td><td class='nm'>ナックスプレンダー</td><td class='pb'>4.9%</td></tr><tr><td class='mk'></td><td class='no'>02</td><td class='nm'>ブレスドナイル</td><td class='pb'>4.9%</td></tr><tr><td class='mk'></td><td class='no'>10</td><td class='nm'>サムワンライクユー</td><td class='pb'>1.3%</td></tr><tr><td class='mk'></td><td class='no'>08</td><td class='nm'>ホーナー</td><td class='pb'>1.3%</td></tr><tr><td class='mk'></td><td class='no'>04</td><td class='nm'>ビリオネアボーイ</td><td class='pb'>1.3%</td></tr><tr><td class='mk'></td><td class='no'>06</td><td class='nm'>メトロポリターナ</td><td class='pb'>0.5%</td></tr><tr><td class='mk'></td><td class='no'>09</td><td class='nm'>オウケンヴィーナス</td><td class='pb'>0.5%</td></tr><tr><td class='mk'></td><td class='no'>05</td><td class='nm'>ペルヴォルム</td><td class='pb'>0.3%</td></tr><tr><td class='mk'></td><td class='no'>11</td><td class='nm'>クリノゴッホ</td><td class='pb'>0.3%</td></tr></tbody></table></div><div class='race' id='068'><h3>中山8R</h3><p class='meta'>13:40 発走 / 16頭</p><table><tbody><tr class='top'><td class='mk'>◎</td><td class='no'>12</td><td class='nm'>イモータリス</td><td class='pb'>20.1%</td></tr><tr class='top'><td class='mk'>○</td><td class='no'>07</td><td class='nm'>マーゴットソラーレ</td><td class='pb'>16.0%</td></tr><tr class='top'><td class='mk'>▲</td><td class='no'>11</td><td class='nm'>テイキットイージー</td><td class='pb'>9.5%</td></tr><tr><td class='mk'></td><td class='no'>05</td><td class='nm'>メアヴィア</td><td class='pb'>9.0%</td></tr><tr><td class='mk'></td><td class='no'>15</td><td class='nm'>サフランルージュ</td><td class='pb'>8.8%</td></tr><tr><td class='mk'></td><td class='no'>16</td><td class='nm'>ベルウッドクレド</td><td class='pb'>8.7%</td></tr><tr><td class='mk'></td><td class='no'>13</td><td class='nm'>ブリックアブラック</td><td class='pb'>5.0%</td></tr><tr><td class='mk'></td><td class='no'>04</td><td class='nm'>ラルガメンテ</td><td class='pb'>5.0%</td></tr><tr><td class='mk'></td><td class='no'>01</td><td class='nm'>プルーヴンウィナー</td><td class='pb'>5.0%</td></tr><tr><td class='mk'></td><td class='no'>02</td><td class='nm'>リリエンフェルト</td><td class='pb'>3.6%</td></tr><tr><td class='mk'></td><td class='no'>09</td><td class='nm'>ピースヒロフェイス</td><td class='pb'>2.7%</td></tr><tr><td class='mk'></td><td class='no'>08</td><td class='nm'>ウイントリベルガ</td><td class='pb'>2.3%</td></tr><tr><td class='mk'></td><td class='no'>06</td><td class='nm'>リュウジンマル</td><td class='pb'>2.2%</td></tr><tr><td class='mk'></td><td class='no'>10</td><td class='nm'>フォーグッド</td><td class='pb'>1.4%</td></tr><tr><td class='mk'></td><td class='no'>14</td><td class='nm'>マルカベント</td><td class='pb'>0.5%</td></tr><tr><td class='mk'></td><td class='no'>03</td><td class='nm'>コウセイケンタロス</td><td class='pb'>0.4%</td></tr></tbody></table></div><div class='race' id='069'><h3>中山9R</h3><p class='meta'>14:10 発走 / 16頭</p><table><tbody><tr class='top'><td class='mk'>◎</td><td class='no'>03</td><td class='nm'>パースウェイド</td><td class='pb'>18.5%</td></tr><tr class='top'><td class='mk'>○</td><td class='no'>14</td><td class='nm'>ヴンダーバール</td><td class='pb'>17.5%</td></tr><tr class='top'><td class='mk'>▲</td><td class='no'>06</td><td class='nm'>フィールオーサム</td><td class='pb'>11.8%</td></tr><tr><td class='mk'></td><td class='no'>11</td><td class='nm'>ロイスター</td><td class='pb'>11.3%</td></tr><tr><td class='mk'></td><td class='no'>05</td><td class='nm'>サファイアテソーロ</td><td class='pb'>7.4%</td></tr><tr><td class='mk'></td><td class='no'>02</td><td class='nm'>ヴァズレーヌ</td><td class='pb'>6.7%</td></tr><tr><td class='mk'></td><td class='no'>01</td><td class='nm'>コンアフェット</td><td class='pb'>5.8%</td></tr><tr><td class='mk'></td><td class='no'>04</td><td class='nm'>エアトベーレ</td><td class='pb'>5.5%</td></tr><tr><td class='mk'></td><td class='no'>08</td><td class='nm'>カスバートテソーロ</td><td class='pb'>3.8%</td></tr><tr><td class='mk'></td><td class='no'>13</td><td class='nm'>セレーノ</td><td class='pb'>3.1%</td></tr><tr><td class='mk'></td><td class='no'>12</td><td class='nm'>レーヴドレフォン</td><td class='pb'>2.8%</td></tr><tr><td class='mk'></td><td class='no'>16</td><td class='nm'>ユーヴェリア</td><td class='pb'>1.5%</td></tr><tr><td class='mk'></td><td class='no'>15</td><td class='nm'>ステラスプレンダー</td><td class='pb'>1.5%</td></tr><tr><td class='mk'></td><td class='no'>09</td><td class='nm'>ルージュマローネ</td><td class='pb'>1.2%</td></tr><tr><td class='mk'></td><td class='no'>10</td><td class='nm'>ヴァリオーサ</td><td class='pb'>0.8%</td></tr><tr><td class='mk'></td><td class='no'>07</td><td class='nm'>コパノエビータ</td><td class='pb'>0.8%</td></tr></tbody></table></div><div class='race' id='0610'><h3>中山10R</h3><p class='meta'>14:50 発走 / 11頭</p><table><tbody><tr class='top'><td class='mk'>◎</td><td class='no'>11</td><td class='nm'>プリムツァール</td><td class='pb'>20.7%</td></tr><tr class='top'><td class='mk'>○</td><td class='no'>05</td><td class='nm'>デイトナチャンプ</td><td class='pb'>20.7%</td></tr><tr class='top'><td class='mk'>▲</td><td class='no'>09</td><td class='nm'>アルデトップガン</td><td class='pb'>13.6%</td></tr><tr><td class='mk'></td><td class='no'>02</td><td class='nm'>レッドレナート</td><td class='pb'>13.4%</td></tr><tr><td class='mk'></td><td class='no'>07</td><td class='nm'>アロンソア</td><td class='pb'>9.7%</td></tr><tr><td class='mk'></td><td class='no'>06</td><td class='nm'>セブンマイスター</td><td class='pb'>7.2%</td></tr><tr><td class='mk'></td><td class='no'>01</td><td class='nm'>フミサウンド</td><td class='pb'>5.7%</td></tr><tr><td class='mk'></td><td class='no'>08</td><td class='nm'>ロゼル</td><td class='pb'>5.4%</td></tr><tr><td class='mk'></td><td class='no'>03</td><td class='nm'>ジャルディニエ</td><td class='pb'>2.1%</td></tr><tr><td class='mk'></td><td class='no'>04</td><td class='nm'>エリム</td><td class='pb'>0.9%</td></tr><tr><td class='mk'></td><td class='no'>10</td><td class='nm'>サヴァビアン</td><td class='pb'>0.6%</td></tr></tbody></table></div><div class='race' id='0611'><h3>中山11R</h3><p class='meta'>15:30 発走 / 16頭</p><table><tbody><tr class='top'><td class='mk'>◎</td><td class='no'>12</td><td class='nm'>リフレックス</td><td class='pb'>14.5%</td></tr><tr class='top'><td class='mk'>○</td><td class='no'>05</td><td class='nm'>サノノワンダー</td><td class='pb'>13.0%</td></tr><tr class='top'><td class='mk'>▲</td><td class='no'>03</td><td class='nm'>ディーズゴールド</td><td class='pb'>13.0%</td></tr><tr><td class='mk'></td><td class='no'>02</td><td class='nm'>キョウエイフロイデ</td><td class='pb'>9.0%</td></tr><tr><td class='mk'></td><td class='no'>14</td><td class='nm'>レディーフランシス</td><td class='pb'>8.7%</td></tr><tr><td class='mk'></td><td class='no'>10</td><td class='nm'>ブルータス</td><td class='pb'>8.7%</td></tr><tr><td class='mk'></td><td class='no'>15</td><td class='nm'>ゲキザル</td><td class='pb'>6.3%</td></tr><tr><td class='mk'></td><td class='no'>09</td><td class='nm'>ラオラシオン</td><td class='pb'>5.5%</td></tr><tr><td class='mk'></td><td class='no'>08</td><td class='nm'>ブロッケンボウ</td><td class='pb'>4.3%</td></tr><tr><td class='mk'></td><td class='no'>13</td><td class='nm'>ハッスルダンク</td><td class='pb'>3.6%</td></tr><tr><td class='mk'></td><td class='no'>01</td><td class='nm'>マーシヴィガラス</td><td class='pb'>3.2%</td></tr><tr><td class='mk'></td><td class='no'>16</td><td class='nm'>ルーラーリッチ</td><td class='pb'>2.6%</td></tr><tr><td class='mk'></td><td class='no'>11</td><td class='nm'>ダカラフェスティヴ</td><td class='pb'>2.5%</td></tr><tr><td class='mk'></td><td class='no'>04</td><td class='nm'>グレイテストソング</td><td class='pb'>2.1%</td></tr><tr><td class='mk'></td><td class='no'>06</td><td class='nm'>タンゴバイラリン</td><td class='pb'>1.9%</td></tr><tr><td class='mk'></td><td class='no'>07</td><td class='nm'>オレデイイノカ</td><td class='pb'>1.1%</td></tr></tbody></table></div><div class='race' id='0612'><h3>中山12R</h3><p class='meta'>16:10 発走 / 16頭</p><table><tbody><tr class='top'><td class='mk'>◎</td><td class='no'>13</td><td class='nm'>ジェイエルキャリア</td><td class='pb'>24.3%</td></tr><tr class='top'><td class='mk'>○</td><td class='no'>03</td><td class='nm'>フュルスティン</td><td class='pb'>12.5%</td></tr><tr class='top'><td class='mk'>▲</td><td class='no'>15</td><td class='nm'>シルバードン</td><td class='pb'>10.0%</td></tr><tr><td class='mk'></td><td class='no'>11</td><td class='nm'>エコロバロン</td><td class='pb'>8.3%</td></tr><tr><td class='mk'></td><td class='no'>12</td><td class='nm'>ソードスレイプニル</td><td class='pb'>7.5%</td></tr><tr><td class='mk'></td><td class='no'>14</td><td class='nm'>エフエイト</td><td class='pb'>6.0%</td></tr><tr><td class='mk'></td><td class='no'>08</td><td class='nm'>ホウオウガイア</td><td class='pb'>5.3%</td></tr><tr><td class='mk'></td><td class='no'>05</td><td class='nm'>アレーティア</td><td class='pb'>5.0%</td></tr><tr><td class='mk'></td><td class='no'>16</td><td class='nm'>ノースブルースカイ</td><td class='pb'>4.7%</td></tr><tr><td class='mk'></td><td class='no'>04</td><td class='nm'>デルマエアロール</td><td class='pb'>4.2%</td></tr><tr><td class='mk'></td><td class='no'>02</td><td class='nm'>ロードストラダーレ</td><td class='pb'>3.0%</td></tr><tr><td class='mk'></td><td class='no'>01</td><td class='nm'>キイチムーブメント</td><td class='pb'>3.0%</td></tr><tr><td class='mk'></td><td class='no'>10</td><td class='nm'>カサブランカキッド</td><td class='pb'>2.5%</td></tr><tr><td class='mk'></td><td class='no'>09</td><td class='nm'>アルシャンティ</td><td class='pb'>2.4%</td></tr><tr><td class='mk'></td><td class='no'>07</td><td class='nm'>アルマグラース</td><td class='pb'>0.7%</td></tr><tr><td class='mk'></td><td class='no'>06</td><td class='nm'>カシノリアーナ</td><td class='pb'>0.4%</td></tr></tbody></table></div>
+
+<div class="adslot"></div>
+
+<h2>この数字の読み方</h2>
+<p>「勝率30%」は、<strong>同じ予報を100回出したら30回前後勝つ</strong>という意味です。
+天気予報の降水確率と同じ読み方をします。
+実際にそのとおりになっているかは<a href="../index.html">答え合わせの記録</a>で公開しています。</p>
+
+<div class="nav">
+  <a href="https://x.com/shoritsu_yoho">Xで毎日の予報を受け取る</a>
+  <a href="https://note.com/shoritsu_yoho">noteで読む</a>
+</div>
+
+<footer>
+<p>本記事の数値は自作の機械学習モデルの出力です。20歳未満の方は馬券を購入できません。</p>
+<p>生成 2026/09/22 09:06</p>
+<p><a href="../about.html">運営者情報</a>　|　<a href="../privacy.html">プライバシーポリシー</a>　|　<a href="../contact.html">お問い合わせ</a></p>
+</footer>
+</div></body></html>
