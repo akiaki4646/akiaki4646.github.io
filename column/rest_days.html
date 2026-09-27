@@ -59,6 +59,13 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
          background:var(--card);border-radius:8px;color:var(--sky);
          text-decoration:none;font-size:.9rem}
 .follow a:hover{border-color:var(--sky)}
+/* 共通メニュー。AdSense の却下理由の1つが「共通ナビゲーションが無い」だった
+   (2026-09-26 実測: 0/35 ページ)。全ページ同じものを最上部に置く。 */
+.sitenav{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;
+  padding:14px 0 12px;margin:0 0 6px;border-bottom:1px solid var(--line);font-size:.9rem}
+.sitenav a{color:var(--dim);text-decoration:none;padding:4px 0}
+.sitenav a:hover{color:var(--sky)}
+.sitenav a.home{color:var(--ink);font-weight:700;margin-right:6px}
 @media(max-width:520px){.kpi div{flex:1 1 100%}}
 
 .adbox{margin:28px 0}
@@ -90,14 +97,17 @@ font-size:1.02rem}
 .col h2{font-size:1.1rem;margin:30px 0 10px}
 .method{background:var(--card);border:1px solid var(--line);border-radius:10px;
 padding:14px 18px;font-size:.92rem;color:var(--dim)}
-.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 14px}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 6px}
+.meta{color:var(--dim);font-size:.85rem;margin:0 0 14px}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
 </head><body><div class="wrap">
+<nav class="sitenav" aria-label="サイトメニュー"><a class="home" href="/">勝率予報</a><a href="/column/">データコラム</a><a href="/method.html">予測のしくみ</a><a href="/race/">過去の予報</a><a href="/about.html">運営者情報</a></nav>
 <h1>長い休み明けは 割引いて見る</h1>
 <p class="subtitle">前走からの間隔ごとの単勝回収率</p>
+<p class="meta">公開 <time datetime="2026-09-13">2026年9月13日</time> ／ 集計期間 2023/01 〜 2026/09</p>
 <div class="col">
 <p>半年以上ぶりに走る馬は、人気になっていても額面どおりには走りません。</p>
 <div class='tablewrap'><table class='col-table'><thead><tr><th>前走からの間隔</th><th>勝率</th><th>単勝回収率</th></tr></thead><tbody><tr><td class='label'>3週以内</td><td>7.2%</td><td class='bar'><span class='track'><span class='fill' style='width:81.0%;background:rgb(155,190,140)'></span></span><b style='color:rgb(155,190,140)'>68.9%</b></td></tr><tr><td class='label'>4〜8週</td><td>8.0%</td><td class='bar'><span class='track'><span class='fill' style='width:88.3%;background:rgb(79,189,222)'></span></span><b style='color:rgb(79,189,222)'>75.1%</b></td></tr><tr><td class='label'>9〜17週</td><td>7.1%</td><td class='bar'><span class='track'><span class='fill' style='width:84.9%;background:rgb(115,189,183)'></span></span><b style='color:rgb(115,189,183)'>72.2%</b></td></tr><tr><td class='label'>18〜30週</td><td>6.3%</td><td class='bar'><span class='track'><span class='fill' style='width:82.5%;background:rgb(139,189,157)'></span></span><b style='color:rgb(139,189,157)'>70.1%</b></td></tr><tr><td class='label'>31週超</td><td>4.8%</td><td class='bar'><span class='track'><span class='fill' style='width:55.3%;background:rgb(240,83,64)'></span></span><b style='color:rgb(240,83,64)'>47.0%</b></td></tr></tbody></table></div><p class='note'>「31週超」と他すべての差は -24.8ポイント （95%信頼区間 -39.2〜-7.1）＝誤差では説明できない</p>

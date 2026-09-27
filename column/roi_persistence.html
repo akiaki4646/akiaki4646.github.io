@@ -59,6 +59,13 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
          background:var(--card);border-radius:8px;color:var(--sky);
          text-decoration:none;font-size:.9rem}
 .follow a:hover{border-color:var(--sky)}
+/* 共通メニュー。AdSense の却下理由の1つが「共通ナビゲーションが無い」だった
+   (2026-09-26 実測: 0/35 ページ)。全ページ同じものを最上部に置く。 */
+.sitenav{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;
+  padding:14px 0 12px;margin:0 0 6px;border-bottom:1px solid var(--line);font-size:.9rem}
+.sitenav a{color:var(--dim);text-decoration:none;padding:4px 0}
+.sitenav a:hover{color:var(--sky)}
+.sitenav a.home{color:var(--ink);font-weight:700;margin-right:6px}
 @media(max-width:520px){.kpi div{flex:1 1 100%}}
 
 .adbox{margin:28px 0}
@@ -90,14 +97,17 @@ font-size:1.02rem}
 .col h2{font-size:1.1rem;margin:30px 0 10px}
 .method{background:var(--card);border:1px solid var(--line);border-radius:10px;
 padding:14px 18px;font-size:.92rem;color:var(--dim)}
-.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 14px}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 6px}
+.meta{color:var(--dim);font-size:.85rem;margin:0 0 14px}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
 </head><body><div class="wrap">
+<nav class="sitenav" aria-label="サイトメニュー"><a class="home" href="/">勝率予報</a><a href="/column/">データコラム</a><a href="/method.html">予測のしくみ</a><a href="/race/">過去の予報</a><a href="/about.html">運営者情報</a></nav>
 <h1>回収率の高い騎手を 買い続けたら</h1>
 <p class="subtitle">2023〜25年の成績で選び、2026年に単勝を買った結果</p>
+<p class="meta">公開 <time datetime="2026-09-13">2026年9月13日</time> ／ 集計期間 2026/01/01〜</p>
 <div class="col">
 <p>「回収率の高い騎手を買え」は本当か。過去3年の成績で選んで、翌年に実際に買ったらどうなるかを試しました。</p>
 <div class='tablewrap'><table class='col-table'><thead><tr><th>選び方</th><th>2026年の単勝回収率</th></tr></thead><tbody><tr><td class='label'>過去の回収率 上位5人</td><td class='bar'><span class='track'><span class='fill' style='width:68.7%;background:rgb(203,190,87)'></span></span><b style='color:rgb(203,190,87)'>61.8%</b></td></tr><tr><td class='label'>過去の回収率 上位10人</td><td class='bar'><span class='track'><span class='fill' style='width:70.6%;background:rgb(189,190,102)'></span></span><b style='color:rgb(189,190,102)'>63.5%</b></td></tr><tr><td class='label'>過去の回収率 上位15人</td><td class='bar'><span class='track'><span class='fill' style='width:87.1%;background:rgb(69,189,233)'></span></span><b style='color:rgb(69,189,233)'>78.4%</b></td></tr><tr><td class='label'>騎手を選ばず全部</td><td class='bar'><span class='track'><span class='fill' style='width:84.3%;background:rgb(89,189,211)'></span></span><b style='color:rgb(89,189,211)'>75.8%</b></td></tr><tr><td class='label'>過去の回収率 下位15人</td><td class='bar'><span class='track'><span class='fill' style='width:56.5%;background:rgb(248,164,42)'></span></span><b style='color:rgb(248,164,42)'>50.8%</b></td></tr><tr><td class='label'>過去の回収率 下位10人</td><td class='bar'><span class='track'><span class='fill' style='width:49.8%;background:rgb(245,133,50)'></span></span><b style='color:rgb(245,133,50)'>44.9%</b></td></tr><tr><td class='label'>過去の回収率 下位5人</td><td class='bar'><span class='track'><span class='fill' style='width:37.9%;background:rgb(240,78,65)'></span></span><b style='color:rgb(240,78,65)'>34.1%</b></td></tr></tbody></table></div><p class='note'>前年までの回収率と翌年の回収率の相関 r = +0.09（ほぼ無関係）</p>

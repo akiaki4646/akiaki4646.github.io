@@ -59,6 +59,13 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
          background:var(--card);border-radius:8px;color:var(--sky);
          text-decoration:none;font-size:.9rem}
 .follow a:hover{border-color:var(--sky)}
+/* 共通メニュー。AdSense の却下理由の1つが「共通ナビゲーションが無い」だった
+   (2026-09-26 実測: 0/35 ページ)。全ページ同じものを最上部に置く。 */
+.sitenav{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;
+  padding:14px 0 12px;margin:0 0 6px;border-bottom:1px solid var(--line);font-size:.9rem}
+.sitenav a{color:var(--dim);text-decoration:none;padding:4px 0}
+.sitenav a:hover{color:var(--sky)}
+.sitenav a.home{color:var(--ink);font-weight:700;margin-right:6px}
 @media(max-width:520px){.kpi div{flex:1 1 100%}}
 
 .adbox{margin:28px 0}
@@ -90,14 +97,17 @@ font-size:1.02rem}
 .col h2{font-size:1.1rem;margin:30px 0 10px}
 .method{background:var(--card);border:1px solid var(--line);border-radius:10px;
 padding:14px 18px;font-size:.92rem;color:var(--dim)}
-.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 14px}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 6px}
+.meta{color:var(--dim);font-size:.85rem;margin:0 0 14px}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
 </head><body><div class="wrap">
+<nav class="sitenav" aria-label="サイトメニュー"><a class="home" href="/">勝率予報</a><a href="/column/">データコラム</a><a href="/method.html">予測のしくみ</a><a href="/race/">過去の予報</a><a href="/about.html">運営者情報</a></nav>
 <h1>「内枠有利」は 回収率に出ない</h1>
 <p class="subtitle">枠番だけで買い方を変えても、収支は動かない</p>
+<p class="meta">公開 <time datetime="2026-09-13">2026年9月13日</time> ／ 集計期間 2023/01 〜 2026/09</p>
 <div class="col">
 <p>内枠が有利、というのは競馬でいちばんよく聞く話のひとつです。単勝回収率で見るかぎり、そこに差はありませんでした。</p>
 <div class='tablewrap'><table class='col-table'><thead><tr><th>枠</th><th>勝率</th><th>単勝回収率</th></tr></thead><tbody><tr><td class='label'>1枠</td><td>7.2%</td><td class='bar'><span class='track'><span class='fill' style='width:89.5%;background:rgb(117,189,180)'></span></span><b style='color:rgb(117,189,180)'>76.1%</b></td></tr><tr><td class='label'>2枠</td><td>6.7%</td><td class='bar'><span class='track'><span class='fill' style='width:80.9%;background:rgb(244,124,53)'></span></span><b style='color:rgb(244,124,53)'>68.8%</b></td></tr><tr><td class='label'>3枠</td><td>7.0%</td><td class='bar'><span class='track'><span class='fill' style='width:80.0%;background:rgb(242,108,57)'></span></span><b style='color:rgb(242,108,57)'>68.0%</b></td></tr><tr><td class='label'>4枠</td><td>7.2%</td><td class='bar'><span class='track'><span class='fill' style='width:84.3%;background:rgb(250,184,37)'></span></span><b style='color:rgb(250,184,37)'>71.7%</b></td></tr><tr><td class='label'>5枠</td><td>7.5%</td><td class='bar'><span class='track'><span class='fill' style='width:87.8%;background:rgb(165,190,129)'></span></span><b style='color:rgb(165,190,129)'>74.6%</b></td></tr><tr><td class='label'>6枠</td><td>7.5%</td><td class='bar'><span class='track'><span class='fill' style='width:87.7%;background:rgb(169,190,125)'></span></span><b style='color:rgb(169,190,125)'>74.5%</b></td></tr><tr><td class='label'>7枠</td><td>7.4%</td><td class='bar'><span class='track'><span class='fill' style='width:85.5%;background:rgb(229,190,59)'></span></span><b style='color:rgb(229,190,59)'>72.7%</b></td></tr><tr><td class='label'>8枠</td><td>7.7%</td><td class='bar'><span class='track'><span class='fill' style='width:79.4%;background:rgb(241,98,60)'></span></span><b style='color:rgb(241,98,60)'>67.5%</b></td></tr></tbody></table></div><p class='note'>最大差 8.6ポイント。どの枠も信頼区間が重なる＝誤差の範囲</p>

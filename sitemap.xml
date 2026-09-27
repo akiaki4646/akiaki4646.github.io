@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://akiaki4646.github.io/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-<url><loc>https://akiaki4646.github.io/race/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 <url><loc>https://akiaki4646.github.io/method.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://akiaki4646.github.io/about.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
 <url><loc>https://akiaki4646.github.io/privacy.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
 <url><loc>https://akiaki4646.github.io/contact.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
-<url><loc>https://akiaki4646.github.io/race/20260927.html</loc><lastmod>2026-09-27</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>
-<url><loc>https://akiaki4646.github.io/race/20260926.html</loc><lastmod>2026-09-26</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>
-<url><loc>https://akiaki4646.github.io/race/20260922.html</loc><lastmod>2026-09-22</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>
-<url><loc>https://akiaki4646.github.io/race/20260920.html</loc><lastmod>2026-09-20</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>
-<url><loc>https://akiaki4646.github.io/race/20260919.html</loc><lastmod>2026-09-19</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>
-<url><loc>https://akiaki4646.github.io/race/20260913.html</loc><lastmod>2026-09-13</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>
-<url><loc>https://akiaki4646.github.io/race/20260912.html</loc><lastmod>2026-09-12</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>
-<url><loc>https://akiaki4646.github.io/race/20260906.html</loc><lastmod>2026-09-06</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>
-<url><loc>https://akiaki4646.github.io/race/20260830.html</loc><lastmod>2026-08-30</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>
-<url><loc>https://akiaki4646.github.io/race/20260829.html</loc><lastmod>2026-08-29</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>
-<url><loc>https://akiaki4646.github.io/race/20260823.html</loc><lastmod>2026-08-23</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>
 <url><loc>https://akiaki4646.github.io/column/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 <url><loc>https://akiaki4646.github.io/column/weight_carried.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://akiaki4646.github.io/column/three_year_old.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

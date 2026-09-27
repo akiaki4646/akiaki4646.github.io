@@ -59,6 +59,13 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
          background:var(--card);border-radius:8px;color:var(--sky);
          text-decoration:none;font-size:.9rem}
 .follow a:hover{border-color:var(--sky)}
+/* 共通メニュー。AdSense の却下理由の1つが「共通ナビゲーションが無い」だった
+   (2026-09-26 実測: 0/35 ページ)。全ページ同じものを最上部に置く。 */
+.sitenav{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;
+  padding:14px 0 12px;margin:0 0 6px;border-bottom:1px solid var(--line);font-size:.9rem}
+.sitenav a{color:var(--dim);text-decoration:none;padding:4px 0}
+.sitenav a:hover{color:var(--sky)}
+.sitenav a.home{color:var(--ink);font-weight:700;margin-right:6px}
 @media(max-width:520px){.kpi div{flex:1 1 100%}}
 
 .adbox{margin:28px 0}
@@ -90,14 +97,17 @@ font-size:1.02rem}
 .col h2{font-size:1.1rem;margin:30px 0 10px}
 .method{background:var(--card);border:1px solid var(--line);border-radius:10px;
 padding:14px 18px;font-size:.92rem;color:var(--dim)}
-.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 14px}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 6px}
+.meta{color:var(--dim);font-size:.85rem;margin:0 0 14px}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
 </head><body><div class="wrap">
+<nav class="sitenav" aria-label="サイトメニュー"><a class="home" href="/">勝率予報</a><a href="/column/">データコラム</a><a href="/method.html">予測のしくみ</a><a href="/race/">過去の予報</a><a href="/about.html">運営者情報</a></nav>
 <h1>牝馬は混合戦で 不利で、しかも割高</h1>
 <p class="subtitle">牝馬限定戦と混合戦で、牝馬の成績を比べる</p>
+<p class="meta">公開 <time datetime="2026-09-19">2026年9月19日</time> ／ 集計期間 2023/01 〜 2026/09</p>
 <div class="col">
 <p>牝馬は牡馬相手だと苦しい、と言われます。そのとおりでした。ただし話はそこで終わりません。</p>
 <div class='tablewrap'><table class='col-table'><thead><tr><th>区分</th><th>頭数</th><th>勝率</th><th>単勝回収率</th></tr></thead><tbody><tr><td class='label'>混合戦の牡・セン</td><td>102,894</td><td>7.99%</td><td class='bar'><span class='track'><span class='fill' style='width:88.2%;background:rgb(241,92,61)'></span></span><b style='color:rgb(241,92,61)'>75.0%</b></td></tr><tr><td class='label'>混合戦の牝馬</td><td>47,061</td><td>5.86%</td><td class='bar'><span class='track'><span class='fill' style='width:78.9%;background:rgb(96,189,204)'></span></span><b style='color:rgb(96,189,204)'>67.0%</b></td></tr><tr><td class='label'>牝馬限定戦の牝馬</td><td>26,550</td><td>7.13%</td><td class='bar'><span class='track'><span class='fill' style='width:79.2%;background:rgb(108,189,190)'></span></span><b style='color:rgb(108,189,190)'>67.4%</b></td></tr></tbody></table></div><p class='note'>混合戦での牝馬と牡・センの回収率差 -8.0ポイント（95%信頼区間 -14.2〜-1.4）＝誤差では説明できない</p>
