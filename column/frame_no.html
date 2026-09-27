@@ -2,12 +2,12 @@
 <html lang="ja"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>「内枠有利」は 回収率に出ない — 勝率予報</title>
-<meta name="description" content="内枠が有利、というのは競馬でいちばんよく聞く話のひとつです。単勝回収率で見るかぎり、そこに差はありませんでした。">
+<title>内枠は本当に有利？ 枠番別の勝率と単勝回収率を全レースで検証 — 勝率予報</title>
+<meta name="description" content="1枠〜8枠の勝率は7.2〜7.7%でほぼ横並び、回収率の差も誤差の範囲でした。内枠有利と言われる理由と、この数字の読み方をまとめます。">
 <link rel="canonical" href="https://akiaki4646.github.io/column/frame_no.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「内枠有利」は 回収率に出ない — 勝率予報">
-<meta property="og:description" content="内枠が有利、というのは競馬でいちばんよく聞く話のひとつです。単勝回収率で見るかぎり、そこに差はありませんでした。">
+<meta property="og:title" content="内枠は本当に有利？ 枠番別の勝率と単勝回収率を全レースで検証 — 勝率予報">
+<meta property="og:description" content="1枠〜8枠の勝率は7.2〜7.7%でほぼ横並び、回収率の差も誤差の範囲でした。内枠有利と言われる理由と、この数字の読み方をまとめます。">
 <meta property="og:url" content="https://akiaki4646.github.io/column/frame_no.html">
 <meta property="og:image" content="https://akiaki4646.github.io/column/frame_no.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -99,6 +99,7 @@ font-size:1.02rem}
 padding:14px 18px;font-size:.92rem;color:var(--dim)}
 .subtitle{color:var(--sky);font-weight:700;margin:-2px 0 6px}
 .meta{color:var(--dim);font-size:.85rem;margin:0 0 14px}
+.related li{margin:6px 0}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
@@ -117,8 +118,26 @@ padding:14px 18px;font-size:.92rem;color:var(--dim)}
 <p>ここでひとつ断りが要ります。この集計は距離もコースも馬場状態もまとめた全体の数字です。内枠が効くと言われるのは、たとえば小回りコースの短距離のように条件が限られた場面で、全体をならすと打ち消し合って消えます。「どの条件でも差が無い」ではなく「まとめて見ると差が残らない」というのが正確な読み方です。</p>
 <p>ただし条件を細かく切れば切るほど、たまたま出た差を本物と読み違える確率も上がります。8つの枠 × 10のコース × 3つの馬場状態まで割れば240通りになり、そのうち数個が偶然2σを超えるのは当たり前です。細分化して見つけた「妙味のある枠」を信じる前に、別の期間でも同じ枠が残るかを確かめる必要があります。</p>
 <p>ひとつ補足すると、勝率のほうはわずかに外枠が高く出ています（1枠7.2%、8枠7.7%）。通説と逆向きですが、枠ごとの頭数が同じではない（8枠は1レースに2頭以上入ることがある）ので、この差を枠の有利不利として読むことはできません。原因の切り分けはこの集計ではしていないので、ここでは「そう出ている」以上のことは言わないでおきます。</p>
+<h2>なぜ「内枠有利」と言われるのか</h2>
+<p>理屈そのものは素直です。コーナーを回るとき、内側を通る馬は外側を回る馬より走る距離が短くて済みます。コースの形から来る話なので、この部分は正しい。</p>
+<p>とくに、スタートしてから最初のコーナーまでが短いコースでは、外枠の馬が内側へ入りきる前にコーナーを迎えるので、外を回らされやすい、という説明がよくされます。</p>
+<p>ただし内枠には内枠の不利もあります。前と横を他の馬に囲まれて、動きたいときに動けなくなる「包まれる」形です。距離の得と位置取りの損が同時に働くので、どちらが勝つかはレースの形しだいで変わります。</p>
+<h2>この集計の条件</h2>
+<p>集計しているのは、上の期間に行われたJRAの全レースです。芝・ダート・障害、距離、競馬場、馬場状態はすべてまとめています。</p>
+<p>回収率は、各枠のすべての馬の単勝を100円ずつ買ったと仮定した計算です。買い方の工夫は一切入っていません。</p>
+<p>枠番は1枠から8枠までの8つです。出走する頭数が多いレースでは、1つの枠に2頭以上が入ります。外側の枠ほど、1つの枠に入る頭数が多くなりやすいので、枠によって集計に入る頭数そのものが違います。</p>
+<h2>読み違えやすい点</h2>
+<p><b>勝ちやすさと、儲かりやすさは別の話です。</b>仮に内枠の馬がよく勝つとしても、それが知られていればオッズが下がり、回収率には残りません。この表の回収率の列が見ているのは、後者のほうです。</p>
+<p><b>「この競馬場のこの距離なら内枠」という数字には注意が要ります。</b>条件を細かく分けるほど、どこかで偶然大きな差が出ます。たくさん比べた中から目立つものを選ぶ落とし穴は、馬番の奇数・偶数を例にした回でくわしく扱っています。</p>
+<p><b>枠番と馬番は別物です。</b>この表は枠番（1〜8枠）で集計しています。馬番で見ると頭数の多いレースの外側ほど番号が大きくなるので、同じデータでも違う形に見えることがあります。</p>
+<h2>では、枠順はどう使えばいいか</h2>
+<p>枠番の数字だけを見て、良い悪いを決めるのはやめたほうがいい、というのがこの表から言えることです。ただ、枠順が何の役にも立たないわけではありません。</p>
+<p>使いどころは、その馬の走り方と組み合わせたときです。前に行きたい馬が外枠に入れば、内へ切れ込むまでに脚を使うかもしれない。後ろから行く馬なら、外枠のほうが前が詰まりにくいこともある。枠順は、馬ごとの事情と合わせて初めて意味を持ちます。</p>
+<p>裏を返すと、「内枠だから買い」「外枠だから消し」という一律のルールは、みんなが使っているぶん、すでに値段に入っています。差が出るとすれば、そのルールでは拾えない、馬ごとの読みのほうです。</p>
 <h2>集計方法</h2>
 <div class="method">JRA全レースの結果を自前のデータベースで集計。信頼区間はブートストラップ法（3,000回）。距離・コース別には分けていない全体の傾向。</div>
+<h2>関連する検証</h2>
+<ul class="related"><li><a href="./odd_even.html">有意差が出ました。 でも信じません</a></li><li><a href="./running_style.html">回収率239%、 ただし買えません</a></li><li><a href="./field_size.html">少頭数の1番人気は よく勝つ</a></li></ul>
 </div>
 <div class="adbox"><span class="adlabel">スポンサーリンク</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3010782230345323" data-ad-slot="1245965145" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <div class="follow">
