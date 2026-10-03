@@ -53,6 +53,13 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
          background:var(--card);border-radius:8px;color:var(--sky);
          text-decoration:none;font-size:.9rem}
 .follow a:hover{border-color:var(--sky)}
+/* 共通メニュー。AdSense の却下理由の1つが「共通ナビゲーションが無い」だった
+   (2026-09-26 実測: 0/35 ページ)。全ページ同じものを最上部に置く。 */
+.sitenav{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;
+  padding:14px 0 12px;margin:0 0 6px;border-bottom:1px solid var(--line);font-size:.9rem}
+.sitenav a{color:var(--dim);text-decoration:none;padding:4px 0}
+.sitenav a:hover{color:var(--sky)}
+.sitenav a.home{color:var(--ink);font-weight:700;margin-right:6px}
 @media(max-width:520px){.kpi div{flex:1 1 100%}}
 
 .adbox{margin:28px 0}
@@ -80,10 +87,6 @@ margin-bottom:6px}
        text-decoration:none;font-size:.88rem}
 .nav a:hover{border-color:var(--sky)}
 .archive li{margin:6px 0}
-.sitenav{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;
-.sitenav a{color:var(--dim);text-decoration:none;padding:4px 0}
-.sitenav a:hover{color:var(--sky)}
-.sitenav a.home{color:var(--ink);font-weight:700;margin-right:6px}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
@@ -91,9 +94,9 @@ margin-bottom:6px}
 </head><body><div class="wrap">
 <nav class="sitenav" aria-label="サイトメニュー"><a class="home" href="/">勝率予報</a><a href="/column/">データコラム</a><a href="/method.html">予測のしくみ</a><a href="/race/">過去の予報</a><a href="/about.html">運営者情報</a></nav>
 <h1>過去の勝率予報</h1>
-<p class="lead">発走前に公開した予報をそのまま残しています（11日分）。</p>
+<p class="lead">発走前に公開した予報をそのまま残しています（12日分）。</p>
 <div class="nav"><a href="../index.html">答え合わせの記録を見る</a></div>
-<ul class="archive"><li><a href='./20260927.html'>2026/9/27(日) の勝率予報</a></li><li><a href='./20260926.html'>2026/9/26(土) の勝率予報</a></li><li><a href='./20260922.html'>2026/9/22(火) の勝率予報</a></li><li><a href='./20260920.html'>2026/9/20(日) の勝率予報</a></li><li><a href='./20260919.html'>2026/9/19(土) の勝率予報</a></li><li><a href='./20260913.html'>2026/9/13(日) の勝率予報</a></li><li><a href='./20260912.html'>2026/9/12(土) の勝率予報</a></li><li><a href='./20260906.html'>2026/9/6(日) の勝率予報</a></li><li><a href='./20260830.html'>2026/8/30(日) の勝率予報</a></li><li><a href='./20260829.html'>2026/8/29(土) の勝率予報</a></li><li><a href='./20260823.html'>2026/8/23(日) の勝率予報</a></li></ul>
+<ul class="archive"><li><a href='./20261003.html'>2026/10/3(土) の勝率予報</a></li><li><a href='./20260927.html'>2026/9/27(日) の勝率予報</a></li><li><a href='./20260926.html'>2026/9/26(土) の勝率予報</a></li><li><a href='./20260922.html'>2026/9/22(火) の勝率予報</a></li><li><a href='./20260920.html'>2026/9/20(日) の勝率予報</a></li><li><a href='./20260919.html'>2026/9/19(土) の勝率予報</a></li><li><a href='./20260913.html'>2026/9/13(日) の勝率予報</a></li><li><a href='./20260912.html'>2026/9/12(土) の勝率予報</a></li><li><a href='./20260906.html'>2026/9/6(日) の勝率予報</a></li><li><a href='./20260830.html'>2026/8/30(日) の勝率予報</a></li><li><a href='./20260829.html'>2026/8/29(土) の勝率予報</a></li><li><a href='./20260823.html'>2026/8/23(日) の勝率予報</a></li></ul>
 <footer><p>本記事の数値は自作の機械学習モデルの出力です。20歳未満の方は馬券を購入できません。</p>
 <p><a href="../about.html">運営者情報</a>　|　<a href="../privacy.html">プライバシーポリシー</a>　|　<a href="../contact.html">お問い合わせ</a></p>
 </footer>
