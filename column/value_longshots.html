@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIが「割安」と言った穴馬、 何頭来た？ — 勝率予報</title>
+<meta name="description" content="7月26日、札幌12Rの厚岸特別（芝2000m）。9頭立ての8番人気、デルマジュテームが単勝37.8倍で勝ちました。うちのAIは、この馬に発走前から「オッズの割に勝つ確率が高い」って印をつけてました。……と書くと、なんだかすごいAIに見えますよね。なので、同じ印をつけた穴馬を全部数えてみました。">
+<link rel="canonical" href="https://akiaki4646.github.io/column/value_longshots.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AIが「割安」と言った穴馬、 何頭来た？ — 勝率予報">
+<meta property="og:description" content="7月26日、札幌12Rの厚岸特別（芝2000m）。9頭立ての8番人気、デルマジュテームが単勝37.8倍で勝ちました。うちのAIは、この馬に発走前から「オッズの割に勝つ確率が高い」って印をつけてました。……と書くと、なんだかすごいAIに見えますよね。なので、同じ印をつけた穴馬を全部数えてみました。">
+<meta property="og:url" content="https://akiaki4646.github.io/column/value_longshots.html">
+<meta property="og:image" content="https://akiaki4646.github.io/column/value_longshots.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#0b1222;--card:#131c31;--ink:#e8eefb;--dim:#93a6c4;--sky:#38bdf8;--line:#24324e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+     line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
+header{padding:36px 0 8px}
+header img{width:100%;border-radius:14px;display:block}
+/* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
+   モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
+   見出しは 1.3 前後に締める。 */
+h1{font-size:1.55rem;margin:24px 0 6px;letter-spacing:.01em;line-height:1.35}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);line-height:1.4}
+h3{line-height:1.4}
+p{margin:12px 0}
+/* 本文は必ず --ink。--dim は注記・キャプション・補助情報だけに使う。
+   地の文に --dim を当てると、規格上のコントラストは足りていても
+   彩度の低い青が暗い青に乗って「かすむ」(トップだけ --dim になっていた)。 */
+.lead{color:var(--ink)}
+.note,figcaption,.src{color:var(--dim);font-size:.88rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.kpi{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0}
+.kpi div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);
+         border-radius:12px;padding:14px 16px}
+/* 大きい数字をネオンのアクセント色で光らせると、統計の記録ではなく
+   ゲームのスコア表示に見える。数字は本文色にし、アクセントは
+   リンクなど「押せるもの」の合図だけに使う。 */
+.kpi b{display:block;font-size:1.5rem;color:var(--ink);line-height:1.3}
+.kpi span{color:var(--dim);font-size:.85rem}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-variant-numeric:tabular-nums}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--dim);font-weight:600;font-size:.85rem}
+.gap{color:var(--dim)}
+tr.thin td{color:var(--dim);opacity:.72}
+tr.thin td:first-child::after{content:" *";color:var(--dim)}
+a{color:var(--sky)}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
+       color:var(--dim);font-size:.85rem}
+/* 発光する輪郭のカプセルボタンは煽り系サイトの語彙。
+   面で置いた落ち着いたボタンにして、角も丸めすぎない。 */
+.follow{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.follow a{display:inline-block;padding:10px 16px;border:1px solid var(--line);
+         background:var(--card);border-radius:8px;color:var(--sky);
+         text-decoration:none;font-size:.9rem}
+.follow a:hover{border-color:var(--sky)}
+/* 共通メニュー。AdSense の却下理由の1つが「共通ナビゲーションが無い」だった
+   (2026-09-26 実測: 0/35 ページ)。全ページ同じものを最上部に置く。 */
+.sitenav{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;
+  padding:14px 0 12px;margin:0 0 6px;border-bottom:1px solid var(--line);font-size:.9rem}
+.sitenav a{color:var(--dim);text-decoration:none;padding:4px 0}
+.sitenav a:hover{color:var(--sky)}
+.sitenav a.home{color:var(--ink);font-weight:700;margin-right:6px}
+@media(max-width:520px){.kpi div{flex:1 1 100%}}
+
+.adbox{margin:28px 0}
+.adlabel{display:block;font-size:.72rem;color:var(--dim);letter-spacing:.08em;
+margin-bottom:6px}
+
+.tablewrap{overflow-x:auto;margin:20px 0}
+.col-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.col-table th{color:var(--dim);font-weight:600;font-size:.82rem;text-align:right;
+padding:8px 6px;border-bottom:1px solid var(--line);line-height:1.4}
+.col-table th:first-child,.col-table td:first-child{text-align:left}
+/* 項目名の列は折り返させない。狭い画面だと「C.ル/メー/ル」のように
+   1文字ずつ割れて読めなくなる。あふれる場合は .tablewrap が横スクロールする。 */
+.col-table td.label{white-space:nowrap;padding-right:12px;text-align:left}
+.col-table td.rank{color:var(--dim);width:2.2em;padding-right:4px}
+.col-table td{padding:11px 6px;border-bottom:1px solid var(--line);text-align:right}
+.col-table td.bar{width:46%;white-space:nowrap}
+.col-table .track{display:inline-block;width:calc(100% - 4.6em);height:14px;
+background:#243048;border-radius:4px;vertical-align:middle;overflow:hidden}
+.col-table .fill{display:block;height:100%;border-radius:4px}
+.col-table td.bar b{display:inline-block;width:4.4em;text-align:right;
+font-size:1.02rem}
+@media(max-width:520px){
+  .col-table td.bar .track{display:none}
+  .col-table td.bar{width:auto}
+  .col-table td.bar b{width:auto}
+}
+
+.col h2{font-size:1.1rem;margin:30px 0 10px}
+.method{background:var(--card);border:1px solid var(--line);border-radius:10px;
+padding:14px 18px;font-size:.92rem;color:var(--dim)}
+.subtitle{color:var(--sky);font-weight:700;margin:-2px 0 6px}
+.meta{color:var(--dim);font-size:.85rem;margin:0 0 14px}
+.related li{margin:6px 0}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JRQX40LQVN');</script>
+</head><body><div class="wrap">
+<nav class="sitenav" aria-label="サイトメニュー"><a class="home" href="/">勝率予報</a><a href="/column/">データコラム</a><a href="/method.html">予測のしくみ</a><a href="/race/">過去の予報</a><a href="/about.html">運営者情報</a></nav>
+<h1>AIが「割安」と言った穴馬、 何頭来た？</h1>
+<p class="subtitle">458頭を全部数えたら、だいたいオッズのとおりでした</p>
+<p class="meta">公開 <time datetime="2026-11-17">2026年11月17日</time> ／ 集計期間 2026/06/13 〜 2026/11/14</p>
+<div class="col">
+<p>7月26日、札幌12Rの厚岸特別（芝2000m）。9頭立ての8番人気、デルマジュテームが単勝37.8倍で勝ちました。うちのAIは、この馬に発走前から「オッズの割に勝つ確率が高い」って印をつけてました。……と書くと、なんだかすごいAIに見えますよね。なので、同じ印をつけた穴馬を全部数えてみました。</p>
+<div class='tablewrap'><table class='col-table'><thead><tr><th>単勝10倍以上の458頭</th><th>勝った頭数</th><th>回収率</th><th>勝った頭数</th></tr></thead><tbody><tr><td class='label'>うちのAIの見立て</td><td>34.7頭</td><td>148%</td><td class='bar'><span class='track'><span class='fill' style='width:86.6%;background:rgb(239,72,66)'></span></span><b style='color:rgb(239,72,66)'>35</b></td></tr><tr><td class='label'>単勝オッズどおりなら</td><td>18.8頭</td><td>約80%</td><td class='bar'><span class='track'><span class='fill' style='width:46.9%;background:rgb(129,189,168)'></span></span><b style='color:rgb(129,189,168)'>19</b></td></tr><tr><td class='label'>実際</td><td>23頭</td><td>89.8%</td><td class='bar'><span class='track'><span class='fill' style='width:57.5%;background:rgb(212,190,78)'></span></span><b style='color:rgb(212,190,78)'>23</b></td></tr></tbody></table></div><p class='note'>実際の回収率 89.8%（95%の幅 53〜131%）／ オッズどおりなら勝つのは 18.8±4.2頭</p>
+<p>数えたのは、6月13日から11月14日までの37開催日で、AIが発走前に「期待値あり」と判定した単勝10倍以上の馬、458頭です。判定は発走前に時刻つきで記録してあるので、レースのあとで選び直した馬は入ってません。ただ、この印は予報のページにもXにも出していない、AIの中だけの判定です。</p>
+<p>勝ったのは<b>458頭中23頭</b>。AIの見立てでは35頭くらい勝つはずでした。一方で、単勝オッズから逆算すると19頭くらい。実際の23頭は、AIよりオッズのほうにずっと近いです。オッズどおりでも±4頭くらいはぶれるので、23頭はその幅の中に入ってます。</p>
+<p>来た馬はちゃんといます。6月13日、函館12R（ダート1700m）のハヤブサオヒメサマ（12頭立ての9番人気、29.8倍）とか、8月1日、新潟10R（ダート1800m）のブライトラン（14頭立ての9番人気、26.4倍）とか。こういう馬だけ並べたら、穴を当てるAIの宣伝がすぐできちゃいます。でも同じ印の馬が、ほかに435頭負けてます。</p>
+<p>お金で言うと、印の馬の単勝を100円ずつ全部買っていたら、回収率は89.8%でした。AIの計算では148%になるはずだったので、だいぶ足りません。オッズどおりなら約80%なので少し上ですが、458頭だとぶれが大きくて、95%の幅で53〜131%。オッズより上とも言えない、というのが正直なところです。</p>
+<p>なんでこうなったかは分かってます。この印を出していた計算が、穴馬の勝率を、オッズから逆算した勝率の約1.9倍に見積もってました。勝率を高く見すぎれば、どの穴馬も割安に見えます。要するに、うちのAIが穴馬を盛ってました。10月の終わりにここを直したら、印はほとんど出なくなりました。ちなみに予報のページに出している勝率は別の計算で、こっちは毎週、言った数字と実際の勝ち数を答え合わせしてます。</p>
+<p>今週どこかで「この穴馬は期待値あり」って見かけたら、それが何頭中の話か、気にしてみてください。来た1頭のうしろに、来なかった馬が何頭いるか。うちのAIで数えたら、こうでした。</p>
+
+<h2>集計方法</h2>
+<div class="method">対象は2026年6月13日〜11月14日（37開催日）。AIが発走前に単勝の期待値ありと判定した馬のうち、判定した時点の単勝オッズが10倍以上の458頭（同じ馬が何度も判定された場合は最初の1回だけ。判定時点のオッズの記録は30倍で頭打ち。発走時刻以降に記録された判定は除外）。勝った頭数と回収率は、確定した着順と確定の単勝オッズで計算。「オッズどおり」は、判定した時点の単勝オッズから 0.8÷オッズ を勝つ確率とみなして足したもの（0.8 は控除のぶん）。「AIの見立て」は、AIが出した勝率の合計と、勝率×判定時点のオッズの平均。回収率の幅はブートストラップ法（5,000回）。</div>
+
+</div>
+<div class="adbox"><span class="adlabel">スポンサーリンク</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3010782230345323" data-ad-slot="1245965145" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="follow">
+  <a href="../index.html">トップへ戻る</a>
+  <a href="./index.html">コラム一覧</a>
+  <a href="https://x.com/shoritsu_yoho">X</a>
+  <a href="https://note.com/shoritsu_yoho">note</a>
+</div>
+<footer><p>本記事の数値は過去のレース結果を集計したものです。20歳未満の方は馬券を購入できません。</p></footer>
+</div></body></html>
