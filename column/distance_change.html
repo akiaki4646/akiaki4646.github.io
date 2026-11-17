@@ -12,14 +12,27 @@
 <meta property="og:image" content="https://akiaki4646.github.io/column/distance_change.png">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-:root{--bg:#0b1222;--card:#131c31;--ink:#e8eefb;--dim:#93a6c4;--sky:#38bdf8;--line:#24324e}
+/* 2026-11-17 研究ノートの見た目 (ユーザーが案 B を選んだ)。それまでは紺の地で
+   アプリや bot に見えた。色は X の画像 (social_note_style.py) と同じ。
+   --sky は名前を残したまま「青ペン」の色にしている (リンク・押せるもの)。
+   --mark は蛍光ペン、--red は赤ペン (◎・強調)。 */
+:root{--bg:#fbf6e9;--card:#fffdf6;--ink:#1d2433;--dim:#5a6476;--sky:#1f5fbf;
+      --line:#e2d8bf;--grid:#efe7d2;--mark:#ffe14d;--red:#e03a2f}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
+     background-image:linear-gradient(var(--grid) 1px,transparent 1px),
+                      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+     background-size:28px 28px;
      font-family:-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
      line-height:1.75}
 .wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
 header{padding:36px 0 8px}
 header img{width:100%;border-radius:14px;display:block}
+/* トップの一番上は最新の予報の画像 (X の朝の投稿と同じもの)。押すとその日のページ。 */
+.hero{display:block;margin:22px 0 6px;border:1px solid var(--line);border-radius:12px;
+      overflow:hidden;box-shadow:0 3px 0 var(--line)}
+.hero img{width:100%;display:block}
+.mk{background:linear-gradient(transparent 60%,var(--mark) 60%)}
 /* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
    モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
    見出しは 1.3 前後に締める。 */
@@ -84,7 +97,7 @@ padding:8px 6px;border-bottom:1px solid var(--line);line-height:1.4}
 .col-table td{padding:11px 6px;border-bottom:1px solid var(--line);text-align:right}
 .col-table td.bar{width:46%;white-space:nowrap}
 .col-table .track{display:inline-block;width:calc(100% - 4.6em);height:14px;
-background:#243048;border-radius:4px;vertical-align:middle;overflow:hidden}
+background:var(--line);border-radius:4px;vertical-align:middle;overflow:hidden}
 .col-table .fill{display:block;height:100%;border-radius:4px}
 .col-table td.bar b{display:inline-block;width:4.4em;text-align:right;
 font-size:1.02rem}

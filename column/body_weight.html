@@ -2,24 +2,37 @@
 <html lang="ja"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>馬体重の増減は ほぼ効かない — 勝率予報</title>
-<meta name="description" content="馬体重の増減は必ず話題になりますが、回収率をほとんど動かしていませんでした。">
+<title>馬体重の増減は予想に使える？ 増減別の勝率と単勝回収率を検証 — 勝率予報</title>
+<meta name="description" content="前走からの馬体重の増減で7つに分けても、勝率は5.8〜7.7%、回収率は62〜75%に収まりました。唯一外れた区分をどう読むかも含めて解説します。">
 <link rel="canonical" href="https://akiaki4646.github.io/column/body_weight.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="馬体重の増減は ほぼ効かない — 勝率予報">
-<meta property="og:description" content="馬体重の増減は必ず話題になりますが、回収率をほとんど動かしていませんでした。">
+<meta property="og:title" content="馬体重の増減は予想に使える？ 増減別の勝率と単勝回収率を検証 — 勝率予報">
+<meta property="og:description" content="前走からの馬体重の増減で7つに分けても、勝率は5.8〜7.7%、回収率は62〜75%に収まりました。唯一外れた区分をどう読むかも含めて解説します。">
 <meta property="og:url" content="https://akiaki4646.github.io/column/body_weight.html">
 <meta property="og:image" content="https://akiaki4646.github.io/column/body_weight.png">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-:root{--bg:#0b1222;--card:#131c31;--ink:#e8eefb;--dim:#93a6c4;--sky:#38bdf8;--line:#24324e}
+/* 2026-11-17 研究ノートの見た目 (ユーザーが案 B を選んだ)。それまでは紺の地で
+   アプリや bot に見えた。色は X の画像 (social_note_style.py) と同じ。
+   --sky は名前を残したまま「青ペン」の色にしている (リンク・押せるもの)。
+   --mark は蛍光ペン、--red は赤ペン (◎・強調)。 */
+:root{--bg:#fbf6e9;--card:#fffdf6;--ink:#1d2433;--dim:#5a6476;--sky:#1f5fbf;
+      --line:#e2d8bf;--grid:#efe7d2;--mark:#ffe14d;--red:#e03a2f}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
+     background-image:linear-gradient(var(--grid) 1px,transparent 1px),
+                      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+     background-size:28px 28px;
      font-family:-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
      line-height:1.75}
 .wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
 header{padding:36px 0 8px}
 header img{width:100%;border-radius:14px;display:block}
+/* トップの一番上は最新の予報の画像 (X の朝の投稿と同じもの)。押すとその日のページ。 */
+.hero{display:block;margin:22px 0 6px;border:1px solid var(--line);border-radius:12px;
+      overflow:hidden;box-shadow:0 3px 0 var(--line)}
+.hero img{width:100%;display:block}
+.mk{background:linear-gradient(transparent 60%,var(--mark) 60%)}
 /* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
    モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
    見出しは 1.3 前後に締める。 */
@@ -84,7 +97,7 @@ padding:8px 6px;border-bottom:1px solid var(--line);line-height:1.4}
 .col-table td{padding:11px 6px;border-bottom:1px solid var(--line);text-align:right}
 .col-table td.bar{width:46%;white-space:nowrap}
 .col-table .track{display:inline-block;width:calc(100% - 4.6em);height:14px;
-background:#243048;border-radius:4px;vertical-align:middle;overflow:hidden}
+background:var(--line);border-radius:4px;vertical-align:middle;overflow:hidden}
 .col-table .fill{display:block;height:100%;border-radius:4px}
 .col-table td.bar b{display:inline-block;width:4.4em;text-align:right;
 font-size:1.02rem}
@@ -118,10 +131,26 @@ padding:14px 18px;font-size:.92rem;color:var(--dim)}
 <p>馬体重が語られやすいのは、発走前に手に入る数少ない<b>新しい情報</b>だからでしょう。血統も戦績も何週間も前から変わりませんが、馬体重はレースごとに、発走の1時間ほど前に発表されます。新しく届いた数字は重要に感じられます。重要かどうかと、新しいかどうかは別の話です。</p>
 <p>混ざっているものを分ける方向なら、まだ見込みはあります。3歳の春に10kg増えるのと、7歳が休養明けに10kg増えるのでは意味が違う。年齢、間隔、前走からの期間、その馬の平常時の体重との差。そうやって条件を付ければ違いが出る可能性はあります。ただしこの表が示しているのは、<b>条件を付けずに増減だけを見ても意味がない</b>ということです。</p>
 <p>パドックで馬体重を見るのをやめよう、という話ではありません。実際に馬を見て「太い」「絞れた」と判断するのは数字とは別の情報です。ここで否定しているのは、出走表に並んだ「+8」という数字だけで買い目を動かすこと。その数字に、期待するほどの中身は入っていません。</p>
-
+<h2>なぜ馬体重はこれほど注目されるのか</h2>
+<p>馬体重には、ほかの情報にない性質が2つあります。ひとつは、レースの直前にならないと分からないこと。もうひとつは、「+8」のように、はっきりした数字で出てくることです。</p>
+<p>直前に届く具体的な数字は、それだけで判断材料らしく見えます。増えていれば「太い」、減っていれば「細い」と、その場で物語をつけやすいのも理由でしょう。</p>
+<p>ただ、増減の数字には「その馬にとって何キロがちょうどいいのか」という基準が含まれていません。同じ+8でも、成長途中の若い馬と、調子を落としていた馬とでは意味がまったく違います。</p>
+<h2>この集計の条件</h2>
+<p>対象は、前走の馬体重と比べられる馬だけです。初めて走る馬や、比べる前走が無い馬は入っていません。</p>
+<p>区分は、増減なし、1〜4kg、5〜9kg、10kg以上を増えた側と減った側に分けた7つです。</p>
+<p>回収率は、各区分のすべての馬の単勝を100円ずつ買ったと仮定した計算です。馬体重以外の条件（年齢、距離、前走からの間隔など）は揃えていません。</p>
+<h2>読み違えやすい点</h2>
+<p><b>7つ比べれば、1つくらいは偶然外れます。</b>「5〜9kg増」だけが低く出ていますが、区分を増やすほどそういう区分はどこかに現れます。この考え方は、馬番の奇数・偶数を例にした回でくわしく扱っています。</p>
+<p><b>この表は増減だけを見ていて、体重そのものは見ていません。</b>大きい馬か小さい馬かという話と、前走から増えたか減ったかという話は別です。</p>
+<p><b>増減は、前走からの間隔と絡み合っています。</b>しばらく休んでいた馬は体重が増えて戻ってくることが多いので、「増えた馬」の中には休み明けの馬が多く含まれます。休み明けそのものの影響は、レース間隔を扱った回で見ています。</p>
+<h2>では、馬体重はどう見ればいいか</h2>
+<p>この表から言えるのは、増減の数字だけで買い目を変えても、収支は動かないということです。見るのをやめる理由にはなりますが、考えるのをやめる理由にはなりません。</p>
+<p>意味が出てくるとすれば、その馬の過去と比べたときです。好走したときの体重に戻ってきたのか、そこから離れていったのか。同じ増減でも、その馬の中で見ると読み方が変わります。</p>
+<p>パドックで実際の馬を見る人にとっては、体重の数字は「目で見た印象を確かめる材料」くらいに置くのがちょうどいいでしょう。数字が先にあって印象をそれに合わせる、という順番だけは避けたいところです。</p>
 <h2>集計方法</h2>
 <div class="method">馬体重が前走と比較できる馬のみ（新馬・海外帰りなどは除外）。信頼区間はブートストラップ法（3,000回）。</div>
-
+<h2>関連する検証</h2>
+<ul class="related"><li><a href="./odd_even.html">有意差が出ました。 でも信じません</a></li><li><a href="./rest_days.html">長い休み明けは 割引いて見る</a></li><li><a href="./three_year_old.html">3歳馬は古馬相手に 通用していた</a></li></ul>
 </div>
 <div class="adbox"><span class="adlabel">スポンサーリンク</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3010782230345323" data-ad-slot="1245965145" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <div class="follow">
