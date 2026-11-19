@@ -3,10 +3,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>勝率予報 — 発走前に出した勝率と、その結果</title>
-<meta name="description" content="競馬AIが発走前に計算した全頭の勝率を公開し、結果と突き合わせた記録です。1,577レース21,220頭ぶん。">
+<meta name="description" content="競馬AIが計算した全頭の勝率を、レースが始まる前に公開しています。公開した数字はあとから書き換えません。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="勝率予報 — 発走前に出した勝率と、その結果">
-<meta property="og:description" content="競馬AIが発走前に計算した全頭の勝率を公開し、結果と突き合わせた記録です。1,577レース21,220頭ぶん。">
+<meta property="og:description" content="競馬AIが計算した全頭の勝率を、レースが始まる前に公開しています。公開した数字はあとから書き換えません。">
 <meta property="og:url" content="https://akiaki4646.github.io/">
 <meta property="og:image" content="https://akiaki4646.github.io/ogp_default.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -91,22 +91,14 @@ margin-bottom:6px}
 <nav class="sitenav" aria-label="サイトメニュー"><a class="home" href="/">勝率予報</a><a href="/column/">データコラム</a><a href="/method.html">予測のしくみ</a><a href="/race/">過去の予報</a><a href="/about.html">運営者情報</a></nav>
 <a class="hero" href="race/20261115.html"><img src="ogp_default.png" alt="勝率予報"></a>
 
-<h1>発走前に出した勝率を、<span class="mk">結果と突き合わせた</span>記録</h1>
-<p class="lead">競馬AIが計算した全頭の勝率を、レースが始まる前に公開しています。
-1,577レース・21,220頭ぶんの予報と結果がこのページに載っています。
-「30%」と予報した馬は、実際に34%が勝ちました。</p>
+<h1>発走前に出した勝率を、<span class="mk">書き換えずに</span>残しています</h1>
+<p class="lead">競馬AIが計算した全頭の勝率を、レースが始まる前に公開しています。</p>
 <p class="lead">当たった予報だけを後から選ぶことができないよう、
 予測は<strong>発走前の時点で保存</strong>し、後から書き換えていません。</p>
 <p class="lead">予報は、開催日の<strong>朝9時10分ごろ</strong>に、その日の全レースぶんを出します。
 前の日の夜にはまだありません。出たものは<a href="race/20261115.html">最新の勝率予報</a>から見られます。</p>
-
-<div class="kpi">
-  <div><b>0.23%</b><span>予報と結果の平均的なズレ</span></div>
-  <div><b>1,577</b><span>検証したレース</span></div>
-  <div><b>21,220</b><span>検証した頭数</span></div>
-</div>
-<p class="note">※ここでの「合っている」は、予報した確率どおりの割合で実際に起きている、という意味です。
-<strong>儲かることを意味しません</strong>。この予報どおりに買っても、控除率のぶん回収率は100%を下回ります。</p>
+<p class="note">※勝率が合っていることは、<strong>儲かることを意味しません</strong>。
+この予報どおりに買っても、控除率のぶん回収率は100%を下回ります。</p>
 
 <div class="follow">
   <a href="column/index.html">データコラムを読む</a>
@@ -114,51 +106,23 @@ margin-bottom:6px}
   <a href="race/20261115.html">最新の勝率予報</a>
 </div>
 
-<h2>帯ごとの答え合わせ</h2>
-<p>「勝率20〜30%と予報した馬は、本当にそのとおり勝ったのか」を帯ごとに並べています。
-検定に用いた9帯すべてで、予報した値は実際の結果の95%信頼区間に収まりました。
-ただし<strong>この「すべて一致」を成績として読まないでください</strong>。
-頭数の少ない帯は、そもそも一致しないほうが難しいだけです。
-意味があるのは頭数の多い上位3帯で、そこで合っていることがこの表の中身です。
-（下の表は読みやすさのため、頭数の少ない帯をまとめて7行にしています）</p>
-<table>
-<thead><tr><th>予報した勝率</th><th>頭数</th><th>予報</th><th>結果</th><th>差</th></tr></thead>
-<tbody><tr><td>0〜10%</td><td>16,186</td><td>3.0%</td><td>3.0%</td><td class='gap'>+0.0pt</td></tr><tr><td>10〜20%</td><td>2,877</td><td>14.1%</td><td>13.4%</td><td class='gap'>-0.7pt</td></tr><tr><td>20〜30%</td><td>1,174</td><td>24.4%</td><td>24.7%</td><td class='gap'>+0.3pt</td></tr><tr><td>30〜40%</td><td>565</td><td>34.4%</td><td>34.3%</td><td class='gap'>-0.0pt</td></tr><tr><td>40〜50%</td><td>249</td><td>43.9%</td><td>49.8%</td><td class='gap'>+5.9pt</td></tr><tr class='thin'><td>50〜60%</td><td>99</td><td>54.0%</td><td>57.6%</td><td class='gap'>+3.6pt</td></tr><tr class='thin'><td>60%以上</td><td>70</td><td>67.2%</td><td>64.3%</td><td class='gap'>-2.9pt</td></tr></tbody></table>
-<p class="note">＊の付いた行は頭数が少なく、数字がブレやすいので参考程度に見てください。
-それでも40%を超える帯（計418頭）は一貫して結果が予報をやや上回っており、
-「自信のある馬でも言い切らない」という予報の傾向がここにも表れています。</p>
-<p class="note">統計的な補足: 較正の適合度検定（Hosmer-Lemeshow）で p=0.05。
-「予報と実績にズレがある」とは言えない、という意味の数字です。
-なおこの検定は、ズレが無いことを証明するものではありません。</p>
-
-<h2>AIの本命</h2>
-<div class="card">
-<p>各レースで最も勝率が高いと判断した馬（◎）の成績です。</p>
-<table>
-<thead><tr><th>項目</th><th>値</th></tr></thead>
-<tbody>
-<tr><td>対象レース</td><td>1,577</td></tr>
-<tr><td>予報の平均勝率</td><td>34.2%</td></tr>
-<tr><td>実際の勝率</td><td>36.3%</td></tr>
-<tr><td>実際の複勝率</td><td>67.2%</td></tr>
-</tbody></table>
-</div>
+<h2>答え合わせの数字について</h2>
+<p>答え合わせの数字（検証したレース数や、予報と結果のズレ）は、いまこのページに載せていません。
+発走前に公開した数字だけで採点し直しているところです。まとまったら、ここに載せ直します。</p>
 
 <h2>この記録の読み方</h2>
 <p>「勝率30%」は、<strong>同じ予測を100回出したら30回前後勝つ</strong>という意味です。
 天気予報の降水確率と同じ読み方をします。</p>
-<p>数字は2026/5/17以降のもので、
-取消・除外で予測の配分が崩れた21レースは集計から除いています。</p>
 
 <div class="follow">
-  <a href="https://x.com/shoritsu_yoho">Xで毎週の答え合わせを見る</a>
+  <a href="https://x.com/shoritsu_yoho">Xで開催日の予報を受け取る</a>
   <a href="https://note.com/shoritsu_yoho">noteで全レースの予想を読む</a>
 </div>
 
 <div class="adbox"><span class="adlabel">スポンサーリンク</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3010782230345323" data-ad-slot="1245965145" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <footer>
 <p>本記事の数値は自作の機械学習モデルの出力です。20歳未満の方は馬券を購入できません。</p>
-<p>最終更新 2026/11/17　|　2026/5/17〜2026/11/15（53開催日）</p>
+<p>最終更新 2026/11/19</p>
 <p><a href="method.html">予測のしくみ</a>　|　<a href="about.html">運営者情報</a>　|　<a href="privacy.html">プライバシーポリシー</a>　|　<a href="contact.html">お問い合わせ</a></p>
 </footer>
 </div></body></html>
