@@ -6,14 +6,27 @@
 <title>過去の勝率予報 一覧</title>
 <meta name="description" content="発走前に公開した勝率予報の全アーカイブです。">
 <style>
-:root{--bg:#0b1222;--card:#131c31;--ink:#e8eefb;--dim:#93a6c4;--sky:#38bdf8;--line:#24324e}
+/* 2026-11-17 研究ノートの見た目 (ユーザーが案 B を選んだ)。それまでは紺の地で
+   アプリや bot に見えた。色は X の画像 (social_note_style.py) と同じ。
+   --sky は名前を残したまま「青ペン」の色にしている (リンク・押せるもの)。
+   --mark は蛍光ペン、--red は赤ペン (◎・強調)。 */
+:root{--bg:#fbf6e9;--card:#fffdf6;--ink:#1d2433;--dim:#5a6476;--sky:#1f5fbf;
+      --line:#e2d8bf;--grid:#efe7d2;--mark:#ffe14d;--red:#e03a2f}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
+     background-image:linear-gradient(var(--grid) 1px,transparent 1px),
+                      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+     background-size:28px 28px;
      font-family:-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
      line-height:1.75}
 .wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
 header{padding:36px 0 8px}
 header img{width:100%;border-radius:14px;display:block}
+/* トップの一番上は最新の予報の画像 (X の朝の投稿と同じもの)。押すとその日のページ。 */
+.hero{display:block;margin:22px 0 6px;border:1px solid var(--line);border-radius:12px;
+      overflow:hidden;box-shadow:0 3px 0 var(--line)}
+.hero img{width:100%;display:block}
+.mk{background:linear-gradient(transparent 60%,var(--mark) 60%)}
 /* 見出しに本文と同じ 1.75 を当てると、和文の長い見出しが間延びして
    モバイルではファーストビューの半分を占める (実測: h1 24.8px に行間 43.4px)。
    見出しは 1.3 前後に締める。 */
@@ -71,7 +84,7 @@ margin-bottom:6px}
 .race h3{margin:0 0 4px;font-size:1.05rem}
 .race .meta{color:var(--dim);font-size:.85rem;margin:0 0 10px}
 .race table{margin:0}
-.race td.mk{width:2.2em;text-align:center;color:var(--sky);font-weight:700}
+.race td.mk{width:2.2em;text-align:center;color:var(--red,#e03a2f);font-weight:700}
 .race td.no{width:2.6em;text-align:right;color:var(--dim);font-variant-numeric:tabular-nums}
 .race td.nm{text-align:left}
 .race td.pb{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
@@ -87,6 +100,20 @@ margin-bottom:6px}
        text-decoration:none;font-size:.88rem}
 .nav a:hover{border-color:var(--sky)}
 .archive li{margin:6px 0}
+.issued{display:inline-block;margin:0 0 10px;padding:4px 12px;border-radius:999px;
+        border:1px solid var(--sky);color:var(--sky);font-weight:700;font-size:.95rem}
+.howto{background:var(--card);border:1px solid var(--line);border-radius:12px;
+       padding:12px 18px;margin:14px 0}
+.howto ul{margin:0;padding-left:1.2em}
+.howto li{margin:6px 0;font-size:.92rem}
+.jump{margin:14px 0}
+.jump p{margin:6px 0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.jump b{min-width:2.6em;font-size:.9rem}
+.jump a{display:inline-block;min-width:2em;padding:5px 0;text-align:center;
+        border:1px solid var(--line);border-radius:6px;background:var(--card);
+        color:var(--sky);text-decoration:none;font-size:.85rem;
+        font-variant-numeric:tabular-nums}
+.jump a:hover{border-color:var(--sky)}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3010782230345323" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRQX40LQVN"></script>
@@ -94,9 +121,10 @@ margin-bottom:6px}
 </head><body><div class="wrap">
 <nav class="sitenav" aria-label="サイトメニュー"><a class="home" href="/">勝率予報</a><a href="/column/">データコラム</a><a href="/method.html">予測のしくみ</a><a href="/race/">過去の予報</a><a href="/about.html">運営者情報</a></nav>
 <h1>過去の勝率予報</h1>
-<p class="lead">発走前に公開した予報をそのまま残しています（26日分）。</p>
-<div class="nav"><a href="../index.html">答え合わせの記録を見る</a></div>
-<ul class="archive"><li><a href='./20261115.html'>2026/11/15(日) の勝率予報</a></li><li><a href='./20261114.html'>2026/11/14(土) の勝率予報</a></li><li><a href='./20261108.html'>2026/11/8(日) の勝率予報</a></li><li><a href='./20261107.html'>2026/11/7(土) の勝率予報</a></li><li><a href='./20261101.html'>2026/11/1(日) の勝率予報</a></li><li><a href='./20261031.html'>2026/10/31(土) の勝率予報</a></li><li><a href='./20261025.html'>2026/10/25(日) の勝率予報</a></li><li><a href='./20261024.html'>2026/10/24(土) の勝率予報</a></li><li><a href='./20261018.html'>2026/10/18(日) の勝率予報</a></li><li><a href='./20261017.html'>2026/10/17(土) の勝率予報</a></li><li><a href='./20261012.html'>2026/10/12(月) の勝率予報</a></li><li><a href='./20261011.html'>2026/10/11(日) の勝率予報</a></li><li><a href='./20261010.html'>2026/10/10(土) の勝率予報</a></li><li><a href='./20261004.html'>2026/10/4(日) の勝率予報</a></li><li><a href='./20261003.html'>2026/10/3(土) の勝率予報</a></li><li><a href='./20260927.html'>2026/9/27(日) の勝率予報</a></li><li><a href='./20260926.html'>2026/9/26(土) の勝率予報</a></li><li><a href='./20260922.html'>2026/9/22(火) の勝率予報</a></li><li><a href='./20260920.html'>2026/9/20(日) の勝率予報</a></li><li><a href='./20260919.html'>2026/9/19(土) の勝率予報</a></li><li><a href='./20260913.html'>2026/9/13(日) の勝率予報</a></li><li><a href='./20260912.html'>2026/9/12(土) の勝率予報</a></li><li><a href='./20260906.html'>2026/9/6(日) の勝率予報</a></li><li><a href='./20260830.html'>2026/8/30(日) の勝率予報</a></li><li><a href='./20260829.html'>2026/8/29(土) の勝率予報</a></li><li><a href='./20260823.html'>2026/8/23(日) の勝率予報</a></li></ul>
+<p class="lead">発走前に公開した予報をそのまま残しています（27日分）。
+新しい予報は、開催日の朝9時10分ごろにこの一覧のいちばん上に加わります。</p>
+<div class="nav"><a href="../index.html">勝率予報について</a></div>
+<ul class="archive"><li><a href='./20261122.html'>2026/11/22(日) の勝率予報</a></li><li><a href='./20261115.html'>2026/11/15(日) の勝率予報</a></li><li><a href='./20261114.html'>2026/11/14(土) の勝率予報</a></li><li><a href='./20261108.html'>2026/11/8(日) の勝率予報</a></li><li><a href='./20261107.html'>2026/11/7(土) の勝率予報</a></li><li><a href='./20261101.html'>2026/11/1(日) の勝率予報</a></li><li><a href='./20261031.html'>2026/10/31(土) の勝率予報</a></li><li><a href='./20261025.html'>2026/10/25(日) の勝率予報</a></li><li><a href='./20261024.html'>2026/10/24(土) の勝率予報</a></li><li><a href='./20261018.html'>2026/10/18(日) の勝率予報</a></li><li><a href='./20261017.html'>2026/10/17(土) の勝率予報</a></li><li><a href='./20261012.html'>2026/10/12(月) の勝率予報</a></li><li><a href='./20261011.html'>2026/10/11(日) の勝率予報</a></li><li><a href='./20261010.html'>2026/10/10(土) の勝率予報</a></li><li><a href='./20261004.html'>2026/10/4(日) の勝率予報</a></li><li><a href='./20261003.html'>2026/10/3(土) の勝率予報</a></li><li><a href='./20260927.html'>2026/9/27(日) の勝率予報</a></li><li><a href='./20260926.html'>2026/9/26(土) の勝率予報</a></li><li><a href='./20260922.html'>2026/9/22(火) の勝率予報</a></li><li><a href='./20260920.html'>2026/9/20(日) の勝率予報</a></li><li><a href='./20260919.html'>2026/9/19(土) の勝率予報</a></li><li><a href='./20260913.html'>2026/9/13(日) の勝率予報</a></li><li><a href='./20260912.html'>2026/9/12(土) の勝率予報</a></li><li><a href='./20260906.html'>2026/9/6(日) の勝率予報</a></li><li><a href='./20260830.html'>2026/8/30(日) の勝率予報</a></li><li><a href='./20260829.html'>2026/8/29(土) の勝率予報</a></li><li><a href='./20260823.html'>2026/8/23(日) の勝率予報</a></li></ul>
 <footer><p>本記事の数値は自作の機械学習モデルの出力です。20歳未満の方は馬券を購入できません。</p>
 <p><a href="../about.html">運営者情報</a>　|　<a href="../privacy.html">プライバシーポリシー</a>　|　<a href="../contact.html">お問い合わせ</a></p>
 </footer>
